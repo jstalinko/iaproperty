@@ -15,3 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [JustOrangeController::class , 'index']);
+Route::get('/p/{page}', [JustOrangeController::class, 'getPage'])->name('page');
+Route::get('/category', [JustOrangeController::class , 'getCategory'])->name('category');
+Route::get('/products' , [JustOrangeController::class , 'getProducts'])->name('products');
+Route::get('/product/{slug}' , [JustOrangeController::class , 'detailProduct'])->name('detail.product');
