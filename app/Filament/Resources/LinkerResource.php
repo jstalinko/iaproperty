@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\SocialMediaResource\Pages;
-use App\Filament\Resources\SocialMediaResource\RelationManagers;
-use App\Models\SocialMedia;
+use App\Filament\Resources\LinkerResource\Pages;
+use App\Filament\Resources\LinkerResource\RelationManagers;
+use App\Models\Linker;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,30 +13,26 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class SocialMediaResource extends Resource
+class LinkerResource extends Resource
 {
-    protected static ?string $model = SocialMedia::class;
+    protected static ?string $model = Linker::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-link';
+    protected static ?string $navigationIcon = 'heroicon-o-bolt';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\Select::make('type')
-                    ->options(
-                        ['facebook'=> 'Facebook',
-                         'instagram' => 'Instagram',
-                         'tiktok' => 'TikTok',
-                         'youtube' => 'YouTube',
-                         'twitter' => 'Twitter / X',
-                         'whatsapp' => 'WhatsApp'
-                         ]
-                    )->native(false)
-                    ->required(),
-                Forms\Components\TextInput::make('link')
+                Forms\Components\TextInput::make('label')
                     ->required()
                     ->maxLength(255),
+                Forms\Components\TextInput::make('url')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('icon')
+                    ->required()
+                    ->maxLength(255)
+                    ->default('mdi-web-box'),
             ]);
     }
 
@@ -44,8 +40,11 @@ class SocialMediaResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('type'),
-                Tables\Columns\TextColumn::make('link')
+                Tables\Columns\TextColumn::make('label')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('url')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('icon')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
@@ -80,10 +79,10 @@ class SocialMediaResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListSocialMedia::route('/'),
-            'create' => Pages\CreateSocialMedia::route('/create'),
-            'view' => Pages\ViewSocialMedia::route('/{record}'),
-            'edit' => Pages\EditSocialMedia::route('/{record}/edit'),
+            'index' => Pages\ListLinkers::route('/'),
+            'create' => Pages\CreateLinker::route('/create'),
+            'view' => Pages\ViewLinker::route('/{record}'),
+            'edit' => Pages\EditLinker::route('/{record}/edit'),
         ];
     }
 }

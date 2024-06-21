@@ -28,6 +28,7 @@ class CategoryResource extends Resource
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('image')
                     ->image()
+                    ->imageEditor()
                     ->required(),
                 Forms\Components\TextInput::make('description')
                     ->required()

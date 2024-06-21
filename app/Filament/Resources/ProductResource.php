@@ -23,9 +23,8 @@ class ProductResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('category_id')
-                    ->required()
-                    ->numeric(),
+                Forms\Components\Select::make('category_id')
+                    ->relationship('category')->required(),
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255),

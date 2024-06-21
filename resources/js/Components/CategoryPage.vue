@@ -17,27 +17,43 @@
                 </div>
             </div>
             <div class="flex justify-center items-center gap-10">
+                <Link href="/products/category">
                 <div class="flex flex-col items-center hover:sepia cursor-pointer">
                     <img class="mb-3 w-48" src="/assets/images/bg-chair.png" alt="" />
                     <h4 class="text-3xl">Chair</h4>
                 </div>
+                </Link>
+
+                <Link href="/products/category">
                 <div class="flex flex-col items-center hover:sepia cursor-pointer">
                     <img class="mb-3 w-48" src="/assets/images/bg-sofa.png" alt="" />
                     <h4 class="text-3xl">Sofa</h4>
                 </div>
+                </Link>
+                <Link href="/products/category">
                 <div class="flex flex-col items-center hover:sepia cursor-pointer">
                     <img class="mb-3 w-48" src="/assets/images/bg-bed.png" alt="" />
                     <h4 class="text-3xl">Bed</h4>
                 </div>
+                </Link>
+
+                <Link href="/products/category">
                 <div class="flex flex-col items-center hover:sepia cursor-pointer">
                     <img class="mb-3 w-48" src="/assets/images/bg-cabinet.png" alt="" />
                     <h4 class="text-3xl">Cabinet</h4>
                 </div>
+                </Link>
+                <Link href="/products/category">
                 <div class="flex flex-col items-center hover:sepia cursor-pointer">
                     <img class="mb-3 w-48" src="/assets/images/bg-lampshade.png" alt="" />
                     <h4 class="text-3xl">Lampshade</h4>
                 </div>
+                </Link>
             </div>
         </section>
     </div>
 </template>
+
+<script setup>
+import { Link } from '@inertiajs/vue3';
+</script>

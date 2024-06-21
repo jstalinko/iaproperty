@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Inertia\Inertia;
+use App\Models\Linker;
 use App\Models\Product;
 use Illuminate\Http\Request;
-use Inertia\Inertia;
 
 class JustOrangeController extends Controller
 {
@@ -33,5 +34,14 @@ class JustOrangeController extends Controller
         } else {
             return to_route('justorange-default');
         }
+    }
+
+
+
+    public function linker(): \Inertia\Response
+    {
+
+        $data['linker'] = Linker::all();
+        return Inertia::render('linker' , $data);
     }
 }

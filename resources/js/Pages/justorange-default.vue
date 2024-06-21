@@ -50,7 +50,7 @@
 
 		<section class="bg-[#ffcc4c] py-20 px-64">
 			<div class="flex justify-between">
-				<h2 class="text-[#333333] text-4xl ">Produk terbaru</h2>
+				<h2 class="text-[#333333] text-4xl ">Produk terlaris</h2>
 				<a class="flex items-center gap-2" href="#">
 					Tampilkan semua
 					<i class="fa fa-long-arrow-right"></i>
