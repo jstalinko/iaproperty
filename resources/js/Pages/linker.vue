@@ -24,8 +24,9 @@
                 <h3 class="text-md text-center">Share Link to</h3>&nbsp;&nbsp;
                 <div class="flex flex-row gap-2 justify-center">
                     <a href="" class="bg-blue-500 hover:bg-blue-700 rounded p-3 text-lg text-white"><i class="mdi mdi-facebook "></i></a>
-                    <a href="" class="bg-blue-400 hover:bg-black rounded p-3 text-lg text-white"><i class="mdi mdi-twitter "></i></a>
+                    <a href="" class="bg-black hover:bg-gray-600 rounded p-3 text-lg text-white"><i class="mdi mdi-twitter "></i></a>
                     <a href="" class="bg-green-500 hover:bg-green-700 rounded p-3 text-lg text-white"><i class="mdi mdi-whatsapp "></i></a>
+                    <a href="" class="bg-yellow-500 hover:bg-yellow-300 rounded p-3 text-lg text-white"><i class="mdi mdi-link"></i></a>
                 </div>
                 <div class="text-center bottom-0 absolute">
                     &copy; {{ new Date().getFullYear() }} IA Property. 

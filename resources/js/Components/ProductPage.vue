@@ -2,73 +2,46 @@
 	<div>
 		<section class=" py-20 px-64">
 			<div class="flex justify-between mb-10">
-				<h2 class="text-secondary text-4xl">Produk Terbaru</h2>
-				<a class="flex items-center gap-2" href="/#">
-					More Furniture
+				<h2 class="text-secondary text-4xl">{{ HeadTitle }}</h2>
+
+				<div v-if="Action == 'all'">
+				<a class="flex items-center gap-2" href="/products">
+					Tampilkan Semua Produk
 					<i class="fa fa-long-arrow-right"></i>
 				</a>
+				</div>
+				<div v-else>
+					<button data-dropdown-toggle="dropdownCategory" id="dropdownCategoryButton" class="bg-amber-400 rounded hover:bg-amber-600 p-2">Pilih Kategori <i class="mdi mdi-chevron-down"></i></button>
+						<div id="dropdownCategory"
+							class="z-10 hidden bg-[#FEC43C] divide-y divide-gray-600 rounded-r-lg rounded-bl-lg shadow w-44 dark:bg-gray-700">
+							<ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
+								aria-labelledby="dropdownCategoryButton">
+								<li  v-for="(cat,index) in Categories" :key="index" >
+									<Link :href="'/products/category/'+cat.id"
+										class="block px-4 py-2 hover:bg-yellow-300 text-black ">{{cat.name}}</Link>
+								</li>
+								
+							</ul>
+						</div>
+				</div>
 			</div>
 
-			<div class="flex justify-center gap-5 mb-10">
-				<div class="flex flex-col rounded-lg w-64">
-					<img class="w-full" src="/assets/images/modern-cloud.png" alt="" />
+			<div class="grid grid-cols-2 md:grid-cols-4 justify-center gap-5 mb-10">
+
+				<div class="rounded-lg max-w-80" v-for="(product,index) in Products" :key="index">
+					<img class="w-full rounded-t-lg" :src="product.image" alt="" />
 					<div class="flex flex-col gap-2 text-gray-600 bg-[#FFCC4C] p-5 rounded-b-lg hover:shadow-lg ">
-						<Link href="/products"><h4 class="font-bold hover:underline">Modern Cloud Bed</h4></Link>
+						<Link :href="'/product/'+product.slug"><h4 class="font-bold hover:underline">{{ product.name }}</h4></Link>
 						<p class="text-xs mb-5">
-							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores,
-							voluptatem eligendi vel non nesciunt molestiae?
+							{{ product.content.substr(0,100) }}...
 						</p>
+						<div class="flex justify-between">
+						<b class="text-sm">{{ product.price == 0 ? 'Tanya Admin' : helpers.rupiah(product.price) }}</b>
+						<span class="text-sm"><i class="mdi mdi-tag"></i> {{product.category.name }}</span>
+					</div>
 						<a class="bg-amber-500 px-8 py-2 rounded-lg text-white font-bold text-center hover:bg-amber-700"
 							href="/#"><i class="mdi mdi-cart"></i> Pesan</a>
 							
-					</div>
-				</div>
-				<div class="flex flex-col rounded-lg w-64">
-					<img class="w-full" src="/assets/images/modern-cloud.png" alt="" />
-					<div class="flex flex-col gap-2 text-gray-600 bg-[#FFCC4C] p-5 rounded-b-lg hover:shadow-lg ">
-						<h4 class="font-bold">Modern Cloud Bed</h4>
-						<p class="text-xs mb-5">
-							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores,
-							voluptatem eligendi vel non nesciunt molestiae?
-						</p>
-						<a class="bg-secondary-light px-8 py-2 rounded-lg text-white font-bold text-center"
-							href="/#">Detail</a>
-					</div>
-				</div>
-				<div class="flex flex-col rounded-lg w-64">
-					<img class="w-full" src="/assets/images/modern-cloud.png" alt="" />
-					<div class="flex flex-col gap-2 text-gray-600 bg-[#FFCC4C] p-5 rounded-b-lg hover:shadow-lg ">
-						<h4 class="font-bold">Modern Cloud Bed</h4>
-						<p class="text-xs mb-5">
-							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores,
-							voluptatem eligendi vel non nesciunt molestiae?
-						</p>
-						<a class="bg-secondary-light px-8 py-2 rounded-lg text-white font-bold text-center"
-							href="/#">Detail</a>
-					</div>
-				</div>
-				<div class="flex flex-col rounded-lg w-64">
-					<img class="w-full" src="/assets/images/modern-cloud.png" alt="" />
-					<div class="flex flex-col gap-2 text-gray-600 bg-[#FFCC4C] p-5 rounded-b-lg hover:shadow-lg ">
-						<h4 class="font-bold">Modern Cloud Bed</h4>
-						<p class="text-xs mb-5">
-							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores,
-							voluptatem eligendi vel non nesciunt molestiae?
-						</p>
-						<a class="bg-secondary-light px-8 py-2 rounded-lg text-white font-bold text-center"
-							href="/#">Detail</a>
-					</div>
-				</div>
-				<div class="flex flex-col rounded-lg w-64">
-					<img class="w-full" src="/assets/images/modern-cloud.png" alt="" />
-					<div class="flex flex-col gap-2 text-gray-600 bg-[#FFCC4C] p-5 rounded-b-lg hover:shadow-lg ">
-						<h4 class="font-bold">Modern Cloud Bed</h4>
-						<p class="text-xs mb-5">
-							Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maiores,
-							voluptatem eligendi vel non nesciunt molestiae?
-						</p>
-						<a class="bg-secondary-light px-8 py-2 rounded-lg text-white font-bold text-center"
-							href="/#">Detail</a>
 					</div>
 				</div>
 
@@ -79,4 +52,9 @@
 </template>
 <script setup>
 import { Link } from '@inertiajs/vue3';
+import {inject} from 'vue';
+const helpers = inject('helpers');
+
+defineProps({Products : Object,HeadTitle: String,Action : String , Categories: Object});
+
 </script>

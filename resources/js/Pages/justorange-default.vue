@@ -262,7 +262,7 @@
 		</section>
 		<CategoryPage id="CategoryPage" />
 
-		<ProductPage />
+		<ProductPage :Products="Products" :HeadTitle="HeadTitle" :Action="Action" />
 
 		<Testimonial/>
 
@@ -301,4 +301,7 @@ import Footer from '../Components/Footer.vue';
 import CategoryPage from '../Components/CategoryPage.vue';
 import Testimonial from '../Components/Testimonial.vue';
 import ProductPage from '../Components/ProductPage.vue';
+defineProps({Products: Object });
+const HeadTitle = 'Produk Terbaru';
+const Action = 'all';
 </script>

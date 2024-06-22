@@ -13,8 +13,8 @@
 						<Link href="/products">Produk</Link>
 					</li>
 					<li class="hover:text-[#FEC43C]">
-						<button data-dropdown-toggle="dropdown" >Kategori <i class="mdi mdi-chevron-down"></i></button>
-						<div id="dropdown"
+						<button id="dropdownDefaultButton" data-dropdown-toggle="dropdownNavbar" >Kategori <i class="mdi mdi-chevron-down"></i></button>
+						<div id="dropdownNavbar"
 							class="z-10 hidden bg-[#FEC43C] divide-y divide-gray-600 rounded-r-lg rounded-bl-lg shadow w-44 dark:bg-gray-700">
 							<ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
 								aria-labelledby="dropdownDefaultButton">
@@ -32,7 +32,7 @@
 					</li>
 
 					<li class="hover:text-[#FEC43C]">
-						<Link href="/p/contact-us">Hubungi</Link>
+						<Link href="/linker">Hubungi</Link>
 					</li>
 					<li class="hover:text-[#FEC43C]">
 						<Link href="/p/about-us">Tentang</Link>

@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/login', function () {
+    return redirect(route('filament.admin.auth.login'));
+})->name('login');
 
 Route::get('/', [JustOrangeController::class, 'index']);
 Route::get('/p/{page}', [JustOrangeController::class, 'getPage'])->name('page');

@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use Inertia\Inertia;
 use App\Models\Linker;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class JustOrangeController extends Controller
 {
     public function index(): \Inertia\Response
     {
-        return Inertia::render('justorange-default');
+        $data['Products'] = Product::orderBy('id','desc')->limit(8)->with('category')->get();
+        return Inertia::render('justorange-default' , $data);
     }
 
     public function getPage(Request $request): \Inertia\Response
@@ -22,7 +24,8 @@ class JustOrangeController extends Controller
 
     public function getProducts(): \Inertia\Response
     {
-        $data['products'] = Product::where('active', true)->orderBy('id', 'desc')->get();
+        $data['Products'] = Product::where('active', true)->orderBy('id', 'desc')->with('category')->get();
+        $data['Categories'] = Category::all();
         return Inertia::render('products/index', $data);
     }
 
@@ -30,13 +33,23 @@ class JustOrangeController extends Controller
     {
         $data['product'] = Product::where('slug', $request->slug)->first();
         if ($data['product']) {
-            return Inertia::render('product/detail', $data);
+            return Inertia::render('products/detail', $data);
         } else {
-            return to_route('justorange-default');
+            return to_route('/');
         }
     }
 
-
+    public function getProductByCategory(Request $request): \Inertia\Response
+    {
+       
+        $data['Products'] = Product::where('active', true)->where('category_id',$request->id)->orderBy('id', 'desc')->with('category')->get();
+        $data['Categories'] = Category::all();
+        if($data['Products']){
+        return Inertia::render('products/index', $data);
+        }else{
+            return to_route('/');
+        }
+    }
 
     public function linker(): \Inertia\Response
     {

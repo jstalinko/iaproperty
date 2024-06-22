@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('image')->default('https://placehold.co/400x400?text=No+image');
+            $table->string('image')->default('https://placehold.co/219x219?text=No+image');
             $table->string('description')->default('No Description');
             $table->boolean('active')->default(true);
             $table->timestamps();
