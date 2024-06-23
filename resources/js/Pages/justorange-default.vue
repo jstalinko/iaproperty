@@ -17,40 +17,12 @@
 					internasional.
 				</p>
 			</div>
-			<div class="flex gap-5 justify-center absolute bottom-0 right-20">
-				<div class="flex justify-center gap-5  rounded-xl p-10 divide-x divide-secondary-dark">
-					<div>
-						<img src="/assets/images/fast-delivery.png" alt="" />
-					</div>
-					<div class="flex flex-col items-center justify-start w-3/4">
-						<h4 class="text-secondary-dark font-bold w-3/4">Fast Delivery</h4>
-						<p class="text-gray-600 w-3/4">Lorem ipsum dolor sit amet.</p>
-					</div>
-				</div>
-				<div class="flex justify-center gap-5  rounded-xl p-10 divide-x divide-primary-dark">
-					<div>
-						<img src="/assets/images/turn-left-arrow.png" alt="" />
-					</div>
-					<div class="flex flex-col items-center justify-start w-3/4">
-						<h4 class="text-secondary-dark font-bold w-3/4">Free Return</h4>
-						<p class="text-gray-600 w-3/4">Lorem ipsum dolor sit amet.</p>
-					</div>
-				</div>
-				<div class="flex justify-center gap-5 rounded-xl p-10 divide-x divide-accent-dark">
-					<div>
-						<img src="/assets/images/support.png" alt="" />
-					</div>
-					<div class="flex flex-col items-center justify-start w-3/4">
-						<h4 class="text-secondary-dark font-bold w-3/4">24/7 Support</h4>
-						<p class="text-gray-600 w-3/4">Lorem ipsum dolor sit amet.</p>
-					</div>
-				</div>
-			</div>
+		
 		</section>
 
 		<section class="bg-[#ffcc4c] py-20 px-64">
 			<div class="flex justify-between">
-				<h2 class="text-[#333333] text-4xl ">Produk terlaris</h2>
+				<h2 class="text-[#333333] text-4xl ">Rekomendasi Produk</h2>
 				<a class="flex items-center gap-2" href="#">
 					Tampilkan semua
 					<i class="fa fa-long-arrow-right"></i>
@@ -260,7 +232,7 @@
 				</div>
 			</div>
 		</section>
-		<CategoryPage id="CategoryPage" />
+		<CategoryPage :Categories="Categories" :SubCategories="SubCategories" :ActiveCat="ActiveCat" />
 
 		<ProductPage :Products="Products" :HeadTitle="HeadTitle" :Action="Action" />
 
@@ -301,7 +273,7 @@ import Footer from '../Components/Footer.vue';
 import CategoryPage from '../Components/CategoryPage.vue';
 import Testimonial from '../Components/Testimonial.vue';
 import ProductPage from '../Components/ProductPage.vue';
-defineProps({Products: Object });
+defineProps({Products: Object , Categories: Object , SubCategories: Object , ActiveCat: String});
 const HeadTitle = 'Produk Terbaru';
 const Action = 'all';
 </script>

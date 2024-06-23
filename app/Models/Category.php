@@ -18,12 +18,12 @@ class Category extends Model
     ];
 
     /**
-     * Get all of the products for the Category
+     * Get all of the subcategory for the Category
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function products(): HasMany
+    public function subcategory(): HasMany
     {
-        return $this->hasMany(Product::class);
+        return $this->hasMany(SubCategory::class);
     }
 }

@@ -18,11 +18,12 @@ return new class extends Migration
             $table->string('icon');
             $table->string('logo');
             $table->string('action_button_text')->default('Pesan');
-            $table->integer('no_whatsapp')->default('6287857580910');
+            $table->string('no_whatsapp')->default('6287857580910');
             $table->string('wa_message')->default('Hallo, saya tertarik dengan produk ini !');
             $table->string('meta_author')->default('@jstalinko');
             $table->string('meta_description')->default("build with @jstalinko/justorange");
-            $table->longText('additional_meta');
+            $table->text('meta_keywords')->default('furniture');
+            $table->longText('additional_meta')->nullable();
             $table->timestamps();
         });
     }

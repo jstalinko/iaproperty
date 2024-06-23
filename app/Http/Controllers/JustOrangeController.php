@@ -6,14 +6,21 @@ use Inertia\Inertia;
 use App\Models\Linker;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
 
 class JustOrangeController extends Controller
 {
-    public function index(): \Inertia\Response
+    public function index(Request $request): \Inertia\Response
     {
-        $data['Products'] = Product::orderBy('id','desc')->limit(8)->with('category')->get();
-        return Inertia::render('justorange-default' , $data);
+        $cat = empty($request->get('cat')) ? null : $request->get('cat');
+        $subGet = empty($request->get('sub')) ? null : $request->get('sub');
+        $sub = ($cat == null) ? SubCategory::all() : SubCategory::where('category_id', (int) $cat)->get();
+        $data['Products'] = ($subGet == null) ? Product::orderBy('id', 'desc')->limit(8)->with('subcategory')->get() : Product::where('sub_category_id', (int)$subGet)->orderBy('id', 'desc')->limit(8)->with('subcategory')->get();
+        $data['SubCategories'] = $sub;
+        $data['Categories'] = Category::all();
+        $data['ActiveCat'] = $cat;
+        return Inertia::render('justorange-default', $data);
     }
 
     public function getPage(Request $request): \Inertia\Response
@@ -24,8 +31,8 @@ class JustOrangeController extends Controller
 
     public function getProducts(): \Inertia\Response
     {
-        $data['Products'] = Product::where('active', true)->orderBy('id', 'desc')->with('category')->get();
-        $data['Categories'] = Category::all();
+        $data['Products'] = Product::where('active', true)->orderBy('id', 'desc')->with('subcategory')->get();
+        $data['SubCategories'] = SubCategory::all();
         return Inertia::render('products/index', $data);
     }
 
@@ -41,12 +48,12 @@ class JustOrangeController extends Controller
 
     public function getProductByCategory(Request $request): \Inertia\Response
     {
-       
-        $data['Products'] = Product::where('active', true)->where('category_id',$request->id)->orderBy('id', 'desc')->with('category')->get();
-        $data['Categories'] = Category::all();
-        if($data['Products']){
-        return Inertia::render('products/index', $data);
-        }else{
+
+        $data['Products'] = Product::where('active', true)->where('category_id', $request->id)->orderBy('id', 'desc')->with('subcategory')->get();
+        $data['SubCategories'] = SubCategory::all();
+        if ($data['Products']) {
+            return Inertia::render('products/index', $data);
+        } else {
             return to_route('/');
         }
     }
@@ -55,6 +62,6 @@ class JustOrangeController extends Controller
     {
 
         $data['linker'] = Linker::all();
-        return Inertia::render('linker' , $data);
+        return Inertia::render('linker', $data);
     }
 }

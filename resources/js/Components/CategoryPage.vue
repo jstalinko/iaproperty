@@ -16,6 +16,18 @@
                     <a class="bg-secondary px-8 py-2 rounded-lg text-white font-bold" href="/">Learn more</a>
                 </div>
             </div>
+
+
+<div class="flex justify-center items-center text-sm font-medium text-center text-gray-500  dark:text-gray-400 dark:border-gray-700">
+    <ul class="flex flex-wrap -mb-px border-b-2 border-gray-300">
+        <li class="me-2" v-for="(cat,index) in Categories" :key="index">
+            
+            <Link :href="'?cat='+cat.id" :class="(ActiveCat == cat.id) ? 'inline-block p-4 border-2  border-amber-500  hover:text-amber-500 hover:border-amber-600 ' : 'inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300'">{{ cat.name }}</Link>
+        </li>
+
+    </ul>
+</div>
+
             <div class="flex justify-center items-center gap-10">
                 <Link href="/products/category">
                 <div class="flex flex-col items-center hover:sepia cursor-pointer">
@@ -56,4 +68,6 @@
 
 <script setup>
 import { Link } from '@inertiajs/vue3';
+
+defineProps({Categories: Object , SubCategories: Object , ActiveCat: String});
 </script>

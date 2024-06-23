@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->integer('category_id');
+            $table->integer('sub_category_id');
             $table->string('slug');
             $table->string('name');
             $table->string('image')->default('https://placehold.co/600x400?text=No+image');
             $table->longText('content');
             $table->integer('price')->default(0);
             $table->integer('views')->default(0);
-            $table->boolean('best_seller')->default(false);
+            $table->boolean('recomended')->default(false);
             $table->boolean('active')->default(true);
             $table->timestamps();
         });

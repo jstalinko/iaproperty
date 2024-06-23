@@ -27,6 +27,8 @@ class DatabaseSeeder extends Seeder
             'logo' => '/logo.jpg',
             'meta_author' => '@iapropertyproject',
             'meta_description' => 'IA Property Project - Temukan pengalaman berbelanja furniture ditangani langsung oleh ahli di bidangnya dengan kualitas internasional',
+            'meta_keywords' => 'IA Project Property menyediakan berbagai macam meubel dan furniture berkualitas tinggi untuk kebutuhan rumah dan kantor Anda. Temukan koleksi sofa, meja, kursi, lemari, dan perabotan lainnya dengan desain modern dan elegan. Kepuasan pelanggan adalah prioritas utama kami, dengan layanan pengiriman cepat dan harga terjangkau.',
+            
             'additional_meta' => 'keywords:ia property,furniture\nrobots:follow,index'
         ]);
 

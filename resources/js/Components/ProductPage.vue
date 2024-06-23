@@ -37,10 +37,10 @@
 						</p>
 						<div class="flex justify-between">
 						<b class="text-sm">{{ product.price == 0 ? 'Tanya Admin' : helpers.rupiah(product.price) }}</b>
-						<span class="text-sm"><i class="mdi mdi-tag"></i> {{product.category.name }}</span>
+						<span class="text-sm"><i class="mdi mdi-tag"></i> {{product.subcategory.name }}</span>
 					</div>
 						<a class="bg-amber-500 px-8 py-2 rounded-lg text-white font-bold text-center hover:bg-amber-700"
-							href="/#"><i class="mdi mdi-cart"></i> Pesan</a>
+							href="/#"><i class="mdi mdi-whatsapp"></i> Pesan</a>
 							
 					</div>
 				</div>
