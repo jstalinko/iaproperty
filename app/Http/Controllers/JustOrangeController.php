@@ -15,7 +15,7 @@ class JustOrangeController extends Controller
     {
         $cat = empty($request->get('cat')) ? null : $request->get('cat');
         $subGet = empty($request->get('sub')) ? null : $request->get('sub');
-        $sub = ($cat == null) ? SubCategory::all() : SubCategory::where('category_id', (int) $cat)->get();
+        $sub = ($cat == null) ? SubCategory::orderBy('id','desc')->limit(5)->get() : SubCategory::where('category_id', (int) $cat)->get();
         $data['Products'] = ($subGet == null) ? Product::orderBy('id', 'desc')->limit(8)->with('subcategory')->get() : Product::where('sub_category_id', (int)$subGet)->orderBy('id', 'desc')->limit(8)->with('subcategory')->get();
         $data['SubCategories'] = $sub;
         $data['Categories'] = Category::all();
@@ -38,7 +38,7 @@ class JustOrangeController extends Controller
 
     public function detailProduct(Request $request): \Inertia\Response
     {
-        $data['product'] = Product::where('slug', $request->slug)->first();
+        $data['product'] = Product::where('slug', $request->slug)->with('subcategory')->first();
         if ($data['product']) {
             return Inertia::render('products/detail', $data);
         } else {

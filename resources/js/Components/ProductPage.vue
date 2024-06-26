@@ -5,10 +5,10 @@
 				<h2 class="text-secondary text-4xl">{{ HeadTitle }}</h2>
 
 				<div v-if="Action == 'all'">
-				<a class="flex items-center gap-2" href="/products">
-					Tampilkan Semua Produk
+				<Link class="flex items-center gap-2 hover:underline hover:text-amber-500" href="/products">
+					Tampilkan Semua
 					<i class="fa fa-long-arrow-right"></i>
-				</a>
+				</Link>
 				</div>
 				<div v-else>
 					<button data-dropdown-toggle="dropdownCategory" id="dropdownCategoryButton" class="bg-amber-400 rounded hover:bg-amber-600 p-2">Pilih Kategori <i class="mdi mdi-chevron-down"></i></button>
@@ -29,7 +29,7 @@
 			<div class="grid grid-cols-2 md:grid-cols-4 justify-center gap-5 mb-10">
 
 				<div class="rounded-lg max-w-80" v-for="(product,index) in Products" :key="index">
-					<img class="w-full rounded-t-lg" :src="product.image" alt="" />
+					<img class="w-full rounded-t-lg" :src="product.image" :alt="product.name" />
 					<div class="flex flex-col gap-2 text-gray-600 bg-[#FFCC4C] p-5 rounded-b-lg hover:shadow-lg ">
 						<Link :href="'/product/'+product.slug"><h4 class="font-bold hover:underline">{{ product.name }}</h4></Link>
 						<p class="text-xs mb-5">

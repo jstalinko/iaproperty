@@ -18,47 +18,25 @@
             </div>
 
 
-<div class="flex justify-center items-center text-sm font-medium text-center text-gray-500  dark:text-gray-400 dark:border-gray-700">
-    <ul class="flex flex-wrap -mb-px border-b-2 border-gray-300">
-        <li class="me-2" v-for="(cat,index) in Categories" :key="index">
-            
-            <Link :href="'?cat='+cat.id" :class="(ActiveCat == cat.id) ? 'inline-block p-4 border-2  border-amber-500  hover:text-amber-500 hover:border-amber-600 ' : 'inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300'">{{ cat.name }}</Link>
-        </li>
+            <div
+                class="flex justify-center items-center text-sm font-medium text-center text-gray-500  dark:text-gray-400 dark:border-gray-700 ">
+                <ul class="flex flex-wrap -mb-px border-b-2 border-gray-300">
+                    <li class="me-2" v-for="(cat, index) in Categories" :key="index">
 
-    </ul>
-</div>
+                        <Link :href="'?cat=' + cat.id"
+                            :class="(ActiveCat == cat.id) ? 'inline-block p-4 border-2 border-transparent  bg-amber-400' : 'inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300'"
+                            preserve-scroll>{{ cat.name }}</Link>
+                    </li>
+
+                </ul>
+            </div>
 
             <div class="flex justify-center items-center gap-10">
-                <Link href="/products/category">
+                <Link :href="'?cat=' + ActiveCat + '&sub=' + sub.id" v-for="(sub, index) in SubCategories" :key="index"
+                    preserve-scroll>
                 <div class="flex flex-col items-center hover:sepia cursor-pointer">
-                    <img class="mb-3 w-48" src="/assets/images/bg-chair.png" alt="" />
-                    <h4 class="text-3xl">Chair</h4>
-                </div>
-                </Link>
-
-                <Link href="/products/category">
-                <div class="flex flex-col items-center hover:sepia cursor-pointer">
-                    <img class="mb-3 w-48" src="/assets/images/bg-sofa.png" alt="" />
-                    <h4 class="text-3xl">Sofa</h4>
-                </div>
-                </Link>
-                <Link href="/products/category">
-                <div class="flex flex-col items-center hover:sepia cursor-pointer">
-                    <img class="mb-3 w-48" src="/assets/images/bg-bed.png" alt="" />
-                    <h4 class="text-3xl">Bed</h4>
-                </div>
-                </Link>
-
-                <Link href="/products/category">
-                <div class="flex flex-col items-center hover:sepia cursor-pointer">
-                    <img class="mb-3 w-48" src="/assets/images/bg-cabinet.png" alt="" />
-                    <h4 class="text-3xl">Cabinet</h4>
-                </div>
-                </Link>
-                <Link href="/products/category">
-                <div class="flex flex-col items-center hover:sepia cursor-pointer">
-                    <img class="mb-3 w-48" src="/assets/images/bg-lampshade.png" alt="" />
-                    <h4 class="text-3xl">Lampshade</h4>
+                    <img class="mb-3 w-48" :src="sub.image" :alt="sub.name" />
+                    <h4 class="text-3xl">{{ sub.name }}</h4>
                 </div>
                 </Link>
             </div>
@@ -69,5 +47,7 @@
 <script setup>
 import { Link } from '@inertiajs/vue3';
 
-defineProps({Categories: Object , SubCategories: Object , ActiveCat: String});
+
+defineProps({ Categories: Object, SubCategories: Object, ActiveCat: String });
+
 </script>
