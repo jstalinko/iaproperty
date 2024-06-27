@@ -1,7 +1,8 @@
 <template>
     <div id="categoryPage">
         <section class="flex flex-col gap-10 py-20">
-            <div class="grid grid-cols-2 gap-10 py-20 place-items-center">
+            <div class="hidden md:block">
+                <div class="grid grid-cols-2 gap-10 py-20 place-items-center">
                 <img src="/assets/images/designing.png" alt="" />
                 <div class="text-secondary">
                     <h2 class="text-6xl font-bold mb-10">
@@ -31,11 +32,23 @@
                 </ul>
             </div>
 
-            <div class="flex justify-center items-center gap-10">
+            </div>
+
+            <div class="block md:none">
+                <select class="" >
+                    <option v-for="(cat,index) in Categories" :key="index" :value="cat.id" >{{ cat.name }}</option>
+                </select>
+
+            </div>
+
+
+        
+
+            <div class="flex justify-center md:items-center md:gap-10">
                 <Link :href="'?cat=' + ActiveCat + '&sub=' + sub.id" v-for="(sub, index) in SubCategories" :key="index"
                     preserve-scroll>
                 <div class="flex flex-col items-center hover:sepia cursor-pointer">
-                    <img class="mb-3 w-48" :src="imageUrl(sub.image)" :alt="sub.name" />
+                    <img class="mb-3 w-48" :src="helpers.imageUrl(sub.image)" :alt="sub.name" />
                     <h4 class="text-3xl">{{ sub.name }}</h4>
                 </div>
                 </Link>
@@ -49,20 +62,9 @@ import { Link } from '@inertiajs/vue3';
 
 
 defineProps({ Categories: Object, SubCategories: Object, ActiveCat: String });
+import {inject} from 'vue';
+const helpers = inject('helpers');
 
-const imageUrl = (url) => {
-    if(url !== undefined)
-    {
-        if(url.match(/http/))
-        {
-            return url;
-        }else{
-            return 'http://localhost:8000/storage/'+url;
-        }
-    }else{
-        return url;
-    }
 
-}
 
 </script>

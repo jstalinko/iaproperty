@@ -2,7 +2,8 @@
 	<div>
 		<Navbar />
 
-		<section class="grid grid-cols-2 gap-4 py-20 relative max-h-lvh">
+		<div class="hidden md:block">
+			<section class="grid grid-cols-2 gap-4 py-20 relative max-h-lvh ">
 			<div>
 				<img src="/assets/images/bg-hero-l.png" alt="" />
 			</div>
@@ -19,8 +20,9 @@
 			</div>
 		
 		</section>
+		</div>
 
-		<section class="bg-[#ffcc4c] py-20 px-64">
+		<section class="bg-[#ffcc4c] md:py-20 md:px-64">
 			<div class="flex justify-between">
 				<h2 class="text-[#333333] text-4xl ">Rekomendasi Produk</h2>
 				<a class="flex items-center gap-2" href="#">
