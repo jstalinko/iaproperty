@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Inertia\Inertia;
 use App\Models\Linker;
 use App\Models\Product;
@@ -25,8 +26,14 @@ class JustOrangeController extends Controller
 
     public function getPage(Request $request): \Inertia\Response
     {
+        $posts = Post::where('slug',$request->page)->first();
+        if($posts){
         $data['page'] = $request->page;
+        $data['post'] = $posts; 
         return Inertia::render('pages', $data);
+        }else{
+            return to_route('/products');
+        }
     }
 
     public function getProducts(): \Inertia\Response
@@ -39,6 +46,7 @@ class JustOrangeController extends Controller
     public function detailProduct(Request $request): \Inertia\Response
     {
         $data['product'] = Product::where('slug', $request->slug)->with('subcategory')->first();
+        $data['Products'] = Product::where('sub_category_id' , $data['product']->sub_category_id)->orderBy('views','desc')->with('subcategory')->limit(4)->get();
         if ($data['product']) {
             return Inertia::render('products/detail', $data);
         } else {

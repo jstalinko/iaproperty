@@ -48,35 +48,41 @@
 
 	</div>
 
-	<!-- HTML -->
-<div class="fixed bottom-0 left-0 right-0 bg-gray-800 text-white shadow-md p-4 flex justify-around z-50  md:hidden">
-  <!-- Navbar Content -->
-  <a href="#" class="flex flex-col items-center">
-    <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7m-9-7v18" />
-    </svg>
-    <span>Home</span>
-  </a>
-  <a href="#" class="flex flex-col items-center">
-    <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 20l9-5-9-5-9 5 9 5z" />
-    </svg>
-    <span>Services</span>
-  </a>
-  <a href="#" class="flex flex-col items-center">
-    <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 20v-8m0 0l-8 8m8-8l8 8M12 12V4m0 0L4 12m8-8l8 8" />
-    </svg>
-    <span>About</span>
-  </a>
-  <a href="#" class="flex flex-col items-center">
-    <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8a6 6 0 11-12 0 6 6 0 0112 0z" />
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14a7 7 0 100 14 7 7 0 000-14z" />
-    </svg>
-    <span>Contact</span>
-  </a>
+	<div class="fixed bottom-0 left-0 right-0 bg-gray-100 p-3 mb-10 z-50 rounded-lg md:hidden">
+	<nav class="flex justify-around items-center text-amber-600">
+		<Link href="/" class="flex flex-col items-center hover:text-black">
+			<i class="mdi mdi-home-outline"></i>
+			<span class="text-xs">Beranda</span>
+		</Link>
+		<Link href="/products" class="flex flex-col items-center hover:text-black">
+			<i class="mdi mdi-cube-outline"></i>
+			<span class="text-xs">Produk</span>
+		</Link>
+		<Link href="/categories" class="flex flex-col items-center hover:text-black">
+			<i class="mdi mdi-tag-multiple"></i>
+			<span class="text-xs">Kategori</span>
+		</Link>
+		<Link href="/linker" class="flex flex-col items-center hover:text-black">
+			<i class="mdi mdi-phone-outline"></i>
+			<span class="text-xs">Hubungi</span>
+		</Link>
+		<Link href="/p/about-us" class="flex flex-col items-center hover:text-black">
+			<i class="mdi mdi-information-outline"></i>
+			<span class="text-xs">Tentang</span>
+		</Link>
+	</nav>
+
+<div class="fixed top-0 left-0 right-0 bg-white shadow-md p-4 z-50">
+    <div class="flex justify-center space-x-4">
+        <button class="bg-[#FEC43C] hover:bg-orange-600 text-white font-bold py-2 px-4 rounded" @click="setFilter('rekomendasi')">Rekomendasi</button>
+        <button class="bg-[#FEC43C] hover:bg-orange-600 text-white font-bold py-2 px-4 rounded" @click="setFilter('semua')">Semua Produk</button>
+    </div>
 </div>
+</div>
+
+
+
+
 
 </template>
 

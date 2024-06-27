@@ -84,9 +84,9 @@
 					</div>
 				</div>
 			</div>
-			<div class="flex w-full absolute  bottom-0 ">
+			<!-- <div class="flex w-full absolute  bottom-0 ">
 				<img src="/assets/images/bg-testimonials.png" alt="" />
-			</div>
+			</div> -->
 		</section>
     </div>
 </template>

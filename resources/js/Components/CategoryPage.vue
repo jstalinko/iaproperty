@@ -4,25 +4,10 @@
 
             <!-- desktop -->
             <div class="hidden md:block">
-                <div class="grid grid-cols-2 gap-10 py-20 place-items-center">
-                <img src="/assets/images/designing.png" alt="" />
-                <div class="text-secondary">
-                    <h2 class="text-6xl font-bold mb-10">
-                        Modern Furniture &
-                        <span class="text-primary">Quality first.</span>
-                    </h2>
-                    <p class="text-secondary-light mb-10">
-                        Kami menyediakan furnitur yang modern dengan kualitas internasional,<br>
-                        Sudah ratusan bahkan ribuan klien kami puas dengan produk yang kami hasilkan.<br>
-                        Telusuri kategori apa saja yang kami tawarkan untuk anda.
-                    </p>
-                    <a class="bg-secondary px-8 py-2 rounded-lg text-white font-bold" href="/">Learn more</a>
-                </div>
-            </div>
-
-
+            
             <div
                 class="flex justify-center items-center text-sm font-medium text-center text-gray-500  dark:text-gray-400 dark:border-gray-700 ">
+                
                 <ul class="flex flex-wrap -mb-px border-b-2 border-gray-300">
                     <li class="me-2" v-for="(cat, index) in Categories" :key="index">
 
@@ -38,9 +23,9 @@
 
             <!-- mobile -->
             <div class="flex items-center justify-center  md:hidden" preserver-scroll>
-                <select class="w-5/6 bg-transparent text-gray-700 border-0 border-b-2 border-b-amber-400 hover:border-b-600" v-model="catModel">
-                    <option value="">Pilih Kategori</option>
-                    <option v-for="(cat,index) in Categories" :key="index" :value="cat.id"  >{{ cat.name }}</option>
+                <select class="w-5/6 bg-transparent text-gray-700 border-0 border-b-2 border-b-amber-400 hover:border-b-600" v-model="catModel" >
+                    <option value="">{{ ActiveCat == null ? 'Pilih Kategori' : Categories.find(cat => cat.id == ActiveCat)?.name }}</option>
+                    <option v-for="(cat,index) in Categories"  :value="cat.id" :key="index"  >{{ cat.name  }}</option>
                 </select>
 
             </div>
@@ -70,6 +55,7 @@ defineProps({ Categories: Object, SubCategories: Object, ActiveCat: String });
 import {inject} from 'vue';
 const helpers = inject('helpers');
 const catModel = ref('');
+
 
 watch(catModel , async() => {
     router.visit('?cat='+catModel.value , { preserveScroll: true });
