@@ -17,7 +17,7 @@
       </div>
 
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mb-10">
-        <div class="rounded-lg" v-for="(product, index) in Products" :key="index">
+        <div class="rounded-lg " v-for="(product, index) in Products" :key="index">
           <img class="w-full rounded-t-lg" :src="helpers.imageUrl(product.image)" :alt="product.name" />
           <div class="flex flex-col gap-2 text-gray-600 bg-[#FFCC4C] p-5 rounded-b-lg hover:shadow-lg">
             <Link :href="'/product/' + product.slug"><h4 class="font-bold hover:underline">{{ product.name }}</h4></Link>

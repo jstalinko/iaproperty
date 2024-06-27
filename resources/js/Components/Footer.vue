@@ -4,17 +4,16 @@
 			<div
 				class="flex justify-between gap-10 py-20 px-64 bg-primary bg-[url('/assets/images/dots.png')] bg-cover">
 				<nav>
-					<h5 class="font-bold text-2xl text-slate-500 mb-8">HOME</h5>
+					<h5 class="font-bold text-2xl text-slate-500 mb-8">Produk Kami</h5>
 					<ul class="flex flex-col gap-3">
-						<li>About us</li>
-						<li>Best Deals</li>
-						<li>Collections</li>
-						<li>Shop</li>
+						<li>Semua Produk</li>
+						<li>Produk Terlaris</li>
+						<li>Produk Terbaru</li>
 					</ul>
 				</nav>
 
 				<nav>
-					<h5 class="font-bold text-2xl text-slate-500 mb-8">SERVICES</h5>
+					<h5 class="font-bold text-2xl text-slate-500 mb-8">HALAMAN</h5>
 					<ul class="flex flex-col gap-3">
 						<li>About us</li>
 						<li>Best Deals</li>
@@ -32,7 +31,7 @@
 				</nav>
 
 				<nav>
-					<h5 class="font-bold text-2xl text-slate-500 mb-8">CONNECT</h5>
+					<h5 class="font-bold text-2xl text-slate-500 mb-8">SOCIAL MEDIA</h5>
 					<div class="flex gap-5 mb-3">
 						<i class="fa fa-twitter text-primary-light bg-primary-dark rounded-full py-3 px-4 text-2xl"></i>
 						<i
@@ -41,17 +40,17 @@
 							class="fa fa-instagram text-primary-light bg-primary-dark rounded-full py-3 px-4 text-2xl"></i>
 					</div>
 					<p class="text-lg max-w-sm">
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia
-						blanditiis ullam sequi doloremque corporis. Alias?
+						Jangan ragu untuk berkonsultasi dan tanya kami! 
+						Kami siap melayani kebutuhan anda!
 					</p>
 				</nav>
 			</div>
 
-			<div class="bg-white flex justify-around py-3 font-bold text-xs">
+			<div class="bg-white flex justify-center gap-10 py-3 font-bold text-xs">
 				<span>Terms & Conditions</span>
 				<span>Privacy Policy</span>
 				<span>Sitemap</span>
-				<span>&copy; 2022. All rights reserved. </span>
+				<span>IA PROPERTY &copy; {{new Date().getFullYear()}}. All rights reserved. </span>
 			</div>
 		</footer>
     </div>

@@ -8,9 +8,9 @@
         <div class="flex flex-col items-center relative bg-gray-100 rounded-lg hover:outline outline-1 outline-gray-500 py-5 px-1" v-for="p in [1,2,3,4,5,6,7,8,9,10]">
           <img class="w-32 sm:w-40 absolute -top-10" src="/assets/images/pink-float-chair.png" alt="" />
           <div class="my-10 text-center text-gray-600">
-            <h4 class="text-lg md:text-xl font-bold my-5">Pink Float Chair</h4>
+            <h4 class="text-lg md:text-xl font-bold my-5 animate-pulse">Pink Float Chair</h4>
           <div class="flex flex-col items-center mt-2">
-            <span class="text-xl font-semibold">Rp 299.000</span>
+            <span class="text-xl font-semibold ">Rp 299.000</span>
             <span class="text-sm text-gray-500 mt-1"><i class="mdi mdi-tag"></i> Luar Ruang</span>
             <div class="flex items-center mt-1">
               <i class="mdi mdi-eye-outline text-gray-700"></i>
