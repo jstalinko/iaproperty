@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('label');
             $table->string('url');
-            $table->string('icon')->default('mdi-web-box');
+            $table->integer('click')->default(0);
             $table->timestamps();
         });
     }

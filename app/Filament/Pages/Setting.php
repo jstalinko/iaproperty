@@ -10,7 +10,8 @@ class Setting extends Page
     protected static ?string $navigationIcon = 'heroicon-o-cog';
 
     protected static string $view = 'filament.pages.setting';
-    protected static ?int $navigationSort = 7;
+    protected static ?int $navigationSort = 3;
+    protected static ?string $navigationGroup = 'General Settings';
 
     public ?string $domain;
     public ?string $name;

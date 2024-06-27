@@ -19,6 +19,8 @@ class LinkerResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-bolt';
 
+    protected static ?string $navigationGroup = 'General Settings';
+
     public static function form(Form $form): Form
     {
         return $form
@@ -29,10 +31,6 @@ class LinkerResource extends Resource
                 Forms\Components\TextInput::make('url')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('icon')
-                    ->required()
-                    ->maxLength(255)
-                    ->default('mdi-web-box'),
             ]);
     }
 
@@ -44,7 +42,7 @@ class LinkerResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('url')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('icon')
+                Tables\Columns\TextColumn::make('click')->label('Total Click')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()

@@ -9,6 +9,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class SubCategory extends Model
 {
     use HasFactory;
+    protected $fillable = 
+    [
+    'category_id',
+    'name',
+    'image',
+    'active'
+    ];
 
     /**
      * Get the category that owns the SubCategory

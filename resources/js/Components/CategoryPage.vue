@@ -35,7 +35,7 @@
                 <Link :href="'?cat=' + ActiveCat + '&sub=' + sub.id" v-for="(sub, index) in SubCategories" :key="index"
                     preserve-scroll>
                 <div class="flex flex-col items-center hover:sepia cursor-pointer">
-                    <img class="mb-3 w-48" :src="sub.image" :alt="sub.name" />
+                    <img class="mb-3 w-48" :src="imageUrl(sub.image)" :alt="sub.name" />
                     <h4 class="text-3xl">{{ sub.name }}</h4>
                 </div>
                 </Link>
@@ -49,5 +49,20 @@ import { Link } from '@inertiajs/vue3';
 
 
 defineProps({ Categories: Object, SubCategories: Object, ActiveCat: String });
+
+const imageUrl = (url) => {
+    if(url !== undefined)
+    {
+        if(url.match(/http/))
+        {
+            return url;
+        }else{
+            return 'http://localhost:8000/storage/'+url;
+        }
+    }else{
+        return url;
+    }
+
+}
 
 </script>
