@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="hidden md:block">
         <footer class="flex flex-col">
 			<div
 				class="flex justify-between gap-10 py-20 px-64 bg-primary bg-[url('/assets/images/dots.png')] bg-cover">

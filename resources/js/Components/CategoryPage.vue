@@ -1,6 +1,8 @@
 <template>
     <div id="categoryPage">
         <section class="flex flex-col gap-10 py-20">
+
+            <!-- desktop -->
             <div class="hidden md:block">
                 <div class="grid grid-cols-2 gap-10 py-20 place-items-center">
                 <img src="/assets/images/designing.png" alt="" />
@@ -34,9 +36,11 @@
 
             </div>
 
-            <div class="block md:none">
-                <select class="" >
-                    <option v-for="(cat,index) in Categories" :key="index" :value="cat.id" >{{ cat.name }}</option>
+            <!-- mobile -->
+            <div class="flex items-center justify-center  md:hidden" preserver-scroll>
+                <select class="w-5/6 bg-transparent text-gray-700 border-0 border-b-2 border-b-amber-400 hover:border-b-600" v-model="catModel">
+                    <option value="">Pilih Kategori</option>
+                    <option v-for="(cat,index) in Categories" :key="index" :value="cat.id"  >{{ cat.name }}</option>
                 </select>
 
             </div>
@@ -44,12 +48,12 @@
 
         
 
-            <div class="flex justify-center md:items-center md:gap-10">
+            <div class="flex flex-wrap justify-center gap-2 md:items-center md:gap-10">
                 <Link :href="'?cat=' + ActiveCat + '&sub=' + sub.id" v-for="(sub, index) in SubCategories" :key="index"
                     preserve-scroll>
                 <div class="flex flex-col items-center hover:sepia cursor-pointer">
-                    <img class="mb-3 w-48" :src="helpers.imageUrl(sub.image)" :alt="sub.name" />
-                    <h4 class="text-3xl">{{ sub.name }}</h4>
+                    <img class="mb-3 w-20 md:w-48" :src="helpers.imageUrl(sub.image)" :alt="sub.name" />
+                    <h4 class="text-sm md:text-3xl">{{ sub.name }}</h4>
                 </div>
                 </Link>
             </div>
@@ -59,12 +63,16 @@
 
 <script setup>
 import { Link } from '@inertiajs/vue3';
-
+import {ref,watch} from 'vue';
+import { router } from '@inertiajs/vue3';
 
 defineProps({ Categories: Object, SubCategories: Object, ActiveCat: String });
 import {inject} from 'vue';
 const helpers = inject('helpers');
+const catModel = ref('');
 
-
+watch(catModel , async() => {
+    router.visit('?cat='+catModel.value , { preserveScroll: true });
+});
 
 </script>
