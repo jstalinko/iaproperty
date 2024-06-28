@@ -1,7 +1,9 @@
 <template>
     <section class="bg-[#ffcc4c] py-10 px-5 md:py-20 md:px-64">
       
-      <h1 class="mt-5 mb-10 text-3xl poppins-bold"><i class="mdi mdi-star-circle"></i> Rekomendasi Produk</h1>
+      <div class="border-b-2 border-gray-700 w-3/12">
+        <h1 class="mt-5 mb-10 text-3xl poppins-bold uppercase"><i class="mdi mdi-star-circle"></i> Rekomendasi Produk</h1>
+      </div>
       <br><br>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mt-10 gap-x-5 gap-y-10 md:gap-y-32">
         
@@ -19,9 +21,9 @@
           </div>
           </div>
           <div class="flex items-center gap-5">
-            <button class="bg-gray-500 hover:bg-gray-600 py-1 px-5 sm:px-10 rounded-xl  gap-2 text-white font-bold">
+            <button class="bg-gray-500 hover:bg-gray-600 py-1 px-5 sm:px-10 rounded-full  gap-2 text-white font-bold uppercase">
               <i class="mdi mdi-whatsapp"></i>
-              Pesan
+              Tanya via wa
             </button>
             
           </div>
@@ -31,7 +33,7 @@
       </div>
 <br><br>
       <div class="flex justify-center">
-        <Link href="/products/recomend" class="bg-gray-500 p-2 rounded text-center text-white hover:bg-gray-600 mt-10"><i class="mdi mdi-view-list"></i> Tampilkan Semua</Link>
+        <Link href="/products?filter=recommended" class="bg-white p-2 rounded-full text-center text-gray-600 hover:outline mt-10"><i class="mdi mdi-view-list"></i> Tampilkan Semua</Link>
       </div>
     </section>
   </template>

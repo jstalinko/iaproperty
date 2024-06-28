@@ -1,8 +1,8 @@
 <template>
     <div>
-        <Navbar/>
-        <CategoryPage/>
-        <ProductPage :Products="Products" :HeadTitle="HeadTitle" :Action="Action" :Categories="Categories"/>
+        <Navbar :Categories="Categories"/>
+        <br><br><br>
+        <ProductPage :Products="Products" :HeadTitle="HeadTitle" :Action="Action" :Categories="Categories" :Filter="Filter"/>
     </div>
 </template>
 
@@ -11,7 +11,7 @@ import Navbar from '../../Components/Navbar.vue';
 import CategoryPage from '../../Components/CategoryPage.vue';
 import ProductPage from '../../Components/ProductPage.vue';
 
-defineProps({Products: Object , Categories: Object});
-const HeadTitle = "Semua Produk";
+defineProps({Products: Object , Categories: Object , ActiveCat: String ,  SubCategories: Object , Filter: String });
+const HeadTitle = "Produk Kami";
 const Action = "kategori";
 </script>

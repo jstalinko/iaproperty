@@ -1,10 +1,11 @@
 <template>
     <div id="categoryPage">
+      
         <section class="flex flex-col gap-10 py-20">
 
             <!-- desktop -->
             <div class="hidden md:block">
-            
+              
             <div
                 class="flex justify-center items-center text-sm font-medium text-center text-gray-500  dark:text-gray-400 dark:border-gray-700 ">
                 

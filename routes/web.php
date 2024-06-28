@@ -22,5 +22,5 @@ Route::get('/p/{page}', [JustOrangeController::class, 'getPage'])->name('page');
 Route::get('/category', [JustOrangeController::class, 'getCategory'])->name('category');
 Route::get('/products', [JustOrangeController::class, 'getProducts'])->name('products');
 Route::get('/product/{slug}', [JustOrangeController::class, 'detailProduct'])->name('detail.product');
-Route::get('/products/category/{id}', [JustOrangeController::class, 'getProductByCategory'])->name('products.category');
+Route::get('/category/{id}', [JustOrangeController::class, 'getProductByCategory'])->name('products.category');
 Route::get('/linker', [JustOrangeController::class, 'linker']);

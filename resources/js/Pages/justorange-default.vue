@@ -1,35 +1,50 @@
 <template>
 	<div>
-		<Navbar />
+		<Navbar :Categories="Categories" />
 
 		<div class="hidden md:block relative">
-			<section class="grid grid-cols-2 gap-4 py-20 relative max-h-lvh">
+			<section class="grid grid-cols-2 gap-4 ">
 
-				<div>
-					<img src="/assets/images/bg-hero-l.png" alt="" />
-				</div>
-
-				<div class="flex flex-col items-center justify-center ">
+				<div class="flex flex-col  justify-center ">
 					
-					<h1 class="text-7xl font-bold w-2/3 mb-5 poppins-bold animate-pulse">
-						<span class="text-[#FEC43C]">IA </span> <span class="text-gray-500">PROPERTY</span>
+				<div class="flex flex-col items-center">
+					<h1 class="text-8xl font-bold w-2/3 mb-5 poppins-bold animate-pulse">
+						 <span class="text-gray-600">IA PROJECT</span>
 					</h1>
 
-					<p class="text-secondary w-3/4 text-lg text-center">
-						Temukan pengalaman berbelanja furniture ditangani langsung oleh ahli di bidangnya dengan
-						kualitas
-						internasional.
+					<p class="text-secondary w-3/4 text-lg text-left p-2">
+						Kami bergerak di bidang desain interior dan penyediaan 
+						furniture berkualitas. Dengan tim ahli bidang kayu dan
+						konstruksi furniture yang estetik dan tahan lama untuk
+						berbagai kebutuhan desain interior maupun eksterior.
 					</p>
-
 				</div>
+
+
+					<div class="mt-5 px-32"><br>
+					<Link href="/products" class="bg-amber-400 p-3 rounded text-gray-600 hover:bg-amber-600 mt-5">Belanja sekarang!</Link>
+					</div>
+					
+				</div>
+				
+				<div>
+					<img src="/assets/images/kursi-bg.png" alt="" />
+				</div>
+				
 			</section>
+			<div class="px-5 py-5">
+					<b>&copy; IA PROJECT</b> | <i class="italic">Bawu Batelait, Jepara,Jawa Tengah</i>
+				</div>
+			<div>
+				
+			</div>
 		</div>
 
 		<RecommendedPage />
 
 		<CategoryPage :Categories="Categories" :SubCategories="SubCategories" :ActiveCat="ActiveCat" />
 
-		<ProductPage :Products="Products" :HeadTitle="HeadTitle" :Action="Action" />
+		<ProductPage :Products="Products" :HeadTitle="HeadTitle" :Action="Action" :Filter="Filter" />
 
 		<Testimonial />
 
@@ -48,8 +63,9 @@ import ProductPage from '../Components/ProductPage.vue';
 import RecommendedPage from '../Components/RecommendedPage.vue';
 import Footer from '../Components/Footer.vue';
 import OfferPage from '../Components/OfferPage.vue';
+import {Link} from '@inertiajs/vue3';
 
-defineProps({ Products: Object, Categories: Object, SubCategories: Object, ActiveCat: String });
-const HeadTitle = 'Produk Terbaru';
+defineProps({ Products: Object, Categories: Object, SubCategories: Object, ActiveCat: String,Filter: String });
+const HeadTitle = 'Produk Kami';
 const Action = 'all';
 </script>

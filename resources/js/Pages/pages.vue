@@ -1,7 +1,7 @@
 <template>
 
     <div>
-        <Navbar/>
+        <Navbar :Categories="Categories"/>
             <br><br>
             <div class="container mx-auto mt-10 w-1/2">
                 <h1 class="text-3xl font-bold text-center md:text-left mb-4 poppins-bold"><i class="mdi mdi-newspaper"></i> {{post.title }}</h1>
@@ -13,6 +13,6 @@
 <script setup>
 import Navbar from '../Components/Navbar.vue';
 
-defineProps({ page: Object, post: Object })
+defineProps({ page: Object, post: Object , Categories: Object})
 
 </script>
