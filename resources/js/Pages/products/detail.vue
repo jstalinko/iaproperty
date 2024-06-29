@@ -1,6 +1,7 @@
 <template>
     <div>
-        <Navbar :Categories="Categories"/>
+        <JustHead :Global="Global" :title="product.name" />
+        <Navbar :Categories="Categories" />
 
         <div class="container mx-auto mt-10">
             <br>
@@ -9,7 +10,8 @@
                 <nav class="flex items-center space-x-2 text-gray-700 py-4">
                     <Link href="/" class="hover:text-gray-900"><i class="mdi mdi-home"></i> Home</Link>
                     <span>></span>
-                    <Link :href="'/category/'+Category.id" class="hover:text-gray-900"><i class="mdi mdi-tag"></i> {{Category.name}}</Link>
+                    <Link :href="'/category/' + Category.id" class="hover:text-gray-900"><i class="mdi mdi-tag"></i>
+                    {{ Category.name }}</Link>
                     <span>></span>
                     <span class="text-gray-500">{{ product.subcategory.name }}</span>
                 </nav>
@@ -80,7 +82,14 @@
 import Navbar from '../../Components/Navbar.vue';
 import { Link } from '@inertiajs/vue3';
 import { inject } from 'vue';
-defineProps({ product: Object, Products: Object , Category: Object , Categories: Object });
+import JustHead from '../../Components/JustHead.vue';
+defineProps({
+    product: Object,
+    Products: Object,
+    Category: Object,
+    Categories: Object,
+    Global: Object
+});
 const helpers = inject('helpers');
 
 

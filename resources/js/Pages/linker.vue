@@ -1,4 +1,5 @@
 <template>
+    <JustHead :Global="Global" :title="'Hubungi Kami'"/>
     <div>
         <div class="bg-gradient-to-r from-[#393E46] via-[#FFD369] to-[#EEEEEE] p-3">
             <div
@@ -37,6 +38,7 @@
 </template>
 
 <script setup>
-defineProps({ linker: Object })
+import JustHead from '../Components/JustHead.vue';
+defineProps({ linker: Object  , Global : Object})
 
 </script>

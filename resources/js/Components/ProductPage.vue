@@ -44,7 +44,7 @@
               <b class="text-sm mt-2">{{ product.price == 0 ? 'Tanya Admin' : helpers.rupiah(product.price) }}</b>
               <span class="text-sm mt-2"><i class="mdi mdi-tag"></i> {{ product.subcategory.name }}</span>
             </div>
-            <a class="bg-amber-500 px-8 py-2 rounded-full text-gray-600 font-bold text-center hover:bg-amber-600 hover:text-white uppercase" href="/#"><i class="mdi mdi-whatsapp"></i> Tanya Via Wa</a>
+            <a :href="helpers.WaButton(Global , '/product/'+product.slug)" class="bg-amber-500 px-8 py-2 rounded-full text-gray-600 font-bold text-center hover:bg-amber-600 hover:text-white uppercase" target="_blank"><i class="mdi mdi-whatsapp"></i> {{ Global.Settings.action_button_text }}</a>
           </div>
         </div>
       </div>
@@ -61,5 +61,12 @@ import { Link } from '@inertiajs/vue3';
 import { inject } from 'vue';
 const helpers = inject('helpers');
 
-defineProps({ Products: Object, HeadTitle: String, Action: String, Categories: Object , Filter: String });
+defineProps({
+  Products: Object, 
+  HeadTitle: String, 
+  Action: String, 
+  Categories: Object,
+  Filter: String,
+  Global: Object
+  });
 </script>

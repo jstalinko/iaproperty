@@ -3,7 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Database\Seeders\ProductRecommend;
+use Database\Seeders\Testimoni;
 use Illuminate\Database\Seeder;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,19 +22,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        \App\Models\Setting::create([
-            'domain' => str_replace(['http://', 'https://'], '', env('APP_URL')),
-            'name' => 'IA Project',
-            'tag' => 'Temukan furniture dengan kualitas terbaik',
-            'icon' => '/logo.jpg',
-            'logo' => '/logo.jpg',
-            'meta_author' => '@iapropertyproject',
-            'meta_description' => 'IA Property Project - Temukan pengalaman berbelanja furniture ditangani langsung oleh ahli di bidangnya dengan kualitas internasional',
-            'meta_keywords' => 'IA Project Property menyediakan berbagai macam meubel dan furniture berkualitas tinggi untuk kebutuhan rumah dan kantor Anda. Temukan koleksi sofa, meja, kursi, lemari, dan perabotan lainnya dengan desain modern dan elegan. Kepuasan pelanggan adalah prioritas utama kami, dengan layanan pengiriman cepat dan harga terjangkau.',
-            
-            'additional_meta' => 'keywords:ia property,furniture\nrobots:follow,index'
-        ]);
-
+        
         $links = [
             'tiktok' => 'https://www.tiktok.com/@iapropertyproject?_t=8jdfzny32cg&_r=1',
             'instagram' => 'https://instagram.com/iapropertyproject',
@@ -48,8 +39,21 @@ class DatabaseSeeder extends Seeder
                     'url' => $url
                 ]
             );
+
+           if(!in_array($label,['website','tokopedia','shopee','line']))
+           {
+            \App\Models\SocialMedia::create(
+                [
+                    'type' => $label,
+                    'link' => $url,
+                    'icon'=> 'mdi mdi-'.$label
+                ]
+                );
+           }
         }
 
         $this->call(ProductCategory::class);
+        $this->call(Testimoni::class);
+        $this->call(ProductRecommend::class);
     }
 }

@@ -2,16 +2,25 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\SettingsHelper;
 use App\Models\Post;
 use Inertia\Inertia;
 use App\Models\Linker;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\SubCategory;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 
 class JustOrangeController extends Controller
 {
+    public $Global;
+    public function __construct()
+    {
+        $this->Global['Settings'] = SettingsHelper::getSettings();
+        $this->Global['currentUrl'] = url()->current();
+    }
+
     public function index(Request $request): \Inertia\Response
     {
         $cat = empty($request->get('cat')) ? null : $request->get('cat');
@@ -34,7 +43,7 @@ class JustOrangeController extends Controller
                 $data['Products'] = Product::with('subcategory')->orderBy('price', 'desc')->get();
             }else if($filter == 'recommended')
             {
-                $data['Products'] = Product::where('recomended' , true)->orderBy('id','desc')->get();
+                $data['Products'] = Product::where('recomended' , true)->with('subcategory')->orderBy('id','desc')->get();
             }
         }
 
@@ -42,6 +51,10 @@ class JustOrangeController extends Controller
         $data['Categories'] = Category::all();
         $data['ActiveCat'] = $cat;
         $data['Filter'] = $filter;
+        $data['Global'] = $this->Global;
+        $data['ProductsRecommended'] = Product::where('recomended',true)->limit(10)->with('subcategory')->get();
+        $data['Testimonials'] = Testimonial::where('active',true)->limit(6)->get();
+
         return Inertia::render('justorange-default', $data);
     }
 
@@ -52,6 +65,8 @@ class JustOrangeController extends Controller
             $data['page'] = $request->page;
             $data['post'] = $posts;
             $data['Categories'] = Category::all();
+            $data['Global'] = $this->Global;
+
             return Inertia::render('pages', $data);
         } else {
             return to_route('/products');
@@ -78,12 +93,17 @@ class JustOrangeController extends Controller
                 $data['Products'] = Product::with('subcategory')->orderBy('price', 'asc')->get();
             } elseif ($filter == 'desc_harga') {
                 $data['Products'] = Product::with('subcategory')->orderBy('price', 'desc')->get();
+            }else if($filter == 'recommended')
+            {
+                $data['Products'] = Product::where('recomended' , true)->with('subcategory')->orderBy('id','desc')->get();
             }
         }
         $data['SubCategories'] = $sub;
         $data['Categories'] = Category::all();
         $data['ActiveCat'] = $cat;
         $data['Filter'] = $filter;
+        $data['Global'] = $this->Global;
+
 
         return Inertia::render('products/index', $data);
     }
@@ -95,6 +115,8 @@ class JustOrangeController extends Controller
 
         $data['Category'] = Category::find($data['product']->subcategory->category_id);
         $data['Categories'] = Category::all();
+        $data['Global'] = $this->Global;
+
         if ($data['product']) {
             return Inertia::render('products/detail', $data);
         } else {
@@ -113,6 +135,8 @@ class JustOrangeController extends Controller
         $data['ActiveCat'] = $subGet;
         $data['Category'] = $category;
         $data['subCategory'] = ($subCat==null) ? SubCategory::all() : SubCategory::find($subGet);
+        $data['Global'] = $this->Global;
+
         if ($data['Products']) {
             return Inertia::render('products/category', $data);
         } else {
@@ -124,6 +148,8 @@ class JustOrangeController extends Controller
     {
 
         $data['linker'] = Linker::all();
+        $data['Global'] = $this->Global;
+
         return Inertia::render('linker', $data);
     }
 }

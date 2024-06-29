@@ -7,24 +7,25 @@
       <br><br>
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 mt-10 gap-x-5 gap-y-10 md:gap-y-32">
         
-        <div class="flex flex-col items-center relative bg-gray-100 rounded-lg hover:outline outline-1 outline-gray-500 py-5 px-1" v-for="p in [1,2,3,4,5,6,7,8,9,10]">
-          <img class="w-32 sm:w-40 absolute -top-10" src="/assets/images/pink-float-chair.png" alt="" />
+        <div class="flex flex-col items-center relative bg-gray-100 rounded-lg hover:outline outline-1 outline-gray-500 py-5 px-1" v-for="p in ProductsRecommended">
+          <img class="w-32 sm:w-40 absolute -top-10" :src="helpers.imageUrl(p.image)" alt="" />
           <div class="my-10 text-center text-gray-600">
-            <h4 class="text-lg md:text-xl font-bold my-5 animate-pulse">Pink Float Chair</h4>
+            <h4 class="text-lg md:text-xl font-bold my-5 animate-pulse">{{ p.name }}</h4>
           <div class="flex flex-col items-center mt-2">
-            <span class="text-xl font-semibold ">Rp 299.000</span>
-            <span class="text-sm text-gray-500 mt-1"><i class="mdi mdi-tag"></i> Luar Ruang</span>
+            <span class="text-xl font-semibold ">{{ helpers.rupiah(p.price) }}</span>
+            <span class="text-sm font-thin"><s>{{ helpers.rupiah(helpers.autoDiscount(p.price)) }}</s></span>
+            <span class="text-md text-gray-500 mt-1"><i class="mdi mdi-tag"></i> {{ p.subcategory.name }}</span>
             <div class="flex items-center mt-1">
               <i class="mdi mdi-eye-outline text-gray-700"></i>
-              <span class="ml-1 text-sm text-gray-600">1234x</span>
+              <span class="ml-1 text-sm text-gray-600">{{ p.views }}x</span>
             </div>
           </div>
           </div>
           <div class="flex items-center gap-5">
-            <button class="bg-gray-500 hover:bg-gray-600 py-1 px-5 sm:px-10 rounded-full  gap-2 text-white font-bold uppercase">
+            <a class="bg-gray-500 hover:bg-gray-600 py-1 px-5 sm:px-10 rounded-full  gap-2 text-white font-bold uppercase" :href="helpers.WaButton(Global,'/product/'+p.slug)" target="_blank">
               <i class="mdi mdi-whatsapp"></i>
-              Tanya via wa
-            </button>
+              {{ Global.Settings.action_button_text }}
+            </a>
             
           </div>
           
@@ -40,4 +41,7 @@
   
   <script setup>
 import { Link } from '@inertiajs/vue3';
+import {inject} from 'vue';
+const helpers = inject('helpers');
+defineProps({ProductsRecommended: Object , Global: Object})
 </script>

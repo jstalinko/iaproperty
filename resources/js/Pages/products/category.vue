@@ -1,5 +1,6 @@
 <template>
     <div>
+       <JustHead :Global="Global" :title="'Kategori ' +Category.name"/>
         <Navbar :Categories="Categories"/>
         <br><br>
      
@@ -57,8 +58,17 @@ import CategoryPage from '../../Components/CategoryPage.vue';
 import ProductPage from '../../Components/ProductPage.vue';
 import {inject} from 'vue';
 import {Link} from '@inertiajs/vue3';
+import JustHead from '../../Components/JustHead.vue';
 
-defineProps({Products: Object , Categories: Object,  SubCategories: Object , Filter: String , ActiveCat: String , Category: Object, subCategory: Object });
+defineProps({
+            Products: Object,
+            Categories: Object,
+            SubCategories: Object,
+            Filter: String,
+            ActiveCat: String,
+            Category: Object,
+            subCategory: Object,
+            Global: Object });
 
 const Action = "kategori";
 const helpers = inject('helpers');

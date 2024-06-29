@@ -1,4 +1,5 @@
 <template>
+	<JustHead :Global="Global" />
 	<div>
 		<Navbar :Categories="Categories" />
 
@@ -40,13 +41,13 @@
 			</div>
 		</div>
 
-		<RecommendedPage />
+		<RecommendedPage :ProductsRecommended="ProductsRecommended" :Global="Global"/>
 
 		<CategoryPage :Categories="Categories" :SubCategories="SubCategories" :ActiveCat="ActiveCat" />
 
-		<ProductPage :Products="Products" :HeadTitle="HeadTitle" :Action="Action" :Filter="Filter" />
+		<ProductPage :Products="Products" :HeadTitle="HeadTitle" :Action="Action" :Filter="Filter" :Global="Global" />
 
-		<Testimonial />
+		<Testimonial :Testimonials="Testimonials" />
 
 	
 
@@ -62,10 +63,19 @@ import Testimonial from '../Components/Testimonial.vue';
 import ProductPage from '../Components/ProductPage.vue';
 import RecommendedPage from '../Components/RecommendedPage.vue';
 import Footer from '../Components/Footer.vue';
-import OfferPage from '../Components/OfferPage.vue';
+import JustHead from '../Components/JustHead.vue';
 import {Link} from '@inertiajs/vue3';
 
-defineProps({ Products: Object, Categories: Object, SubCategories: Object, ActiveCat: String,Filter: String });
+defineProps({ ProductsRecommended:Object,
+			  Products: Object, 
+			  Categories: Object, 
+			  SubCategories: Object, 
+			  ActiveCat: String,
+			  Filter: String, 
+			  Global : Object,
+			  Testimonials: Object
+			 });
 const HeadTitle = 'Produk Kami';
 const Action = 'all';
+
 </script>

@@ -1,6 +1,7 @@
 <template>
 
     <div>
+        <JustHead :Global="Global" :title="post.title"/>
         <Navbar :Categories="Categories"/>
             <br><br>
             <div class="container mx-auto mt-10 w-1/2">
@@ -11,8 +12,10 @@
 </template>
 
 <script setup>
+import JustHead from '../Components/JustHead.vue';
 import Navbar from '../Components/Navbar.vue';
 
-defineProps({ page: Object, post: Object , Categories: Object})
+defineProps({ page: Object, post: Object , Categories: Object,
+    Global: Object})
 
 </script>
