@@ -11,7 +11,7 @@
 
                 <div class="container text-center mt-5">
                     <div v-for="(p, i) in linker" :key="i">
-                        <a :href="p.url + '?ref=iaproperty-web'" target="_blank">
+                        <a :href="'/rdr/'+p.label + '?ref=iaproperty-web'" target="_blank">
                             <div
                                 class="w-full border-2 rounded-full bg-gradient-to-r from-[#EEEEEE] via-white to-[#FFD369] border-1 p-2 hover:bg-gradient-to-r hover:from-[#FFD369] hover:via-white hover:to-[#eeeeee] hover:animate-pulse  hover:border-black mb-2 font-bold">
                                 {{ p.label.toUpperCase() }}
@@ -29,7 +29,7 @@
                     <a href="" class="bg-green-500 hover:bg-green-700 rounded p-3 text-lg text-white"><i class="mdi mdi-whatsapp "></i></a>
                     <a href="" class="bg-yellow-500 hover:bg-yellow-300 rounded p-3 text-lg text-white"><i class="mdi mdi-link"></i></a>
                 </div>
-                <div class="text-center bottom-0 absolute">
+                <div class="text-center bottom-0 absolute mt-5">
                     &copy; {{ new Date().getFullYear() }} IA Property. 
                 </div>
             </div>

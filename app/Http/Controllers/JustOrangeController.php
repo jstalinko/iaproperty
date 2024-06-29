@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Helpers\SettingsHelper;
 use App\Models\Post;
 use Inertia\Inertia;
 use App\Models\Linker;
@@ -12,6 +11,8 @@ use App\Models\SocialMedia;
 use App\Models\SubCategory;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
+use App\Helpers\SettingsHelper;
+use Illuminate\Http\RedirectResponse;
 
 class JustOrangeController extends Controller
 {
@@ -162,5 +163,14 @@ class JustOrangeController extends Controller
         $data['Global'] = $this->Global;
 
         return Inertia::render('linker', $data);
+    }
+
+    public function redirector(Request $request): RedirectResponse
+    {
+        $label = $request->label;
+        $linker = Linker::where('label' , $label)->first();
+        $linker->click = $linker->click+1;
+        $linker->save();
+        return redirect($linker->url);
     }
 }

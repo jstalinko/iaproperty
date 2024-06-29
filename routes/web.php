@@ -24,3 +24,4 @@ Route::get('/products', [JustOrangeController::class, 'getProducts'])->name('pro
 Route::get('/product/{slug}', [JustOrangeController::class, 'detailProduct'])->name('detail.product');
 Route::get('/category/{id}', [JustOrangeController::class, 'getProductByCategory'])->name('products.category');
 Route::get('/linker', [JustOrangeController::class, 'linker']);
+Route::get('/rdr/{label}',[JustOrangeController::class , 'redirector']);
