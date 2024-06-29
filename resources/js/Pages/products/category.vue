@@ -42,7 +42,7 @@
               <b class="text-sm mt-2">{{ product.price == 0 ? 'Tanya Admin' : helpers.rupiah(product.price) }}</b>
               <span class="text-sm mt-2"><i class="mdi mdi-tag"></i> {{ product.subcategory.name }}</span>
             </div>
-            <a class="bg-amber-500 px-8 py-2 rounded-full text-gray-600 font-bold text-center hover:bg-amber-600 hover:text-white uppercase" href="/#"><i class="mdi mdi-whatsapp"></i> Tanya Via Wa</a>
+            <a class="bg-amber-500 px-8 py-2 rounded-full text-gray-600 font-bold text-center hover:bg-amber-600 hover:text-white uppercase text-sm md:text-lg" :href="helpers.WaButton(Global,'/product/'+product.slug)"><i class="mdi mdi-whatsapp"></i> {{Global.Settings.action_button_text}}</a>
           </div>
         </div>
       </div>

@@ -66,36 +66,49 @@
 
 
 
-	<div class="fixed bottom-0 left-0 right-0 bg-gray-100 p-3 mb-10 z-50 rounded-lg md:hidden">
-	<nav class="flex justify-around items-center text-amber-600">
-		<Link href="/" class="flex flex-col items-center hover:text-black">
-			<i class="mdi mdi-home-outline"></i>
-			<span class="text-xs">Beranda</span>
-		</Link>
-		<Link href="/products" class="flex flex-col items-center hover:text-black">
-			<i class="mdi mdi-cube-outline"></i>
-			<span class="text-xs">Produk</span>
-		</Link>
-		<Link href="/categories" class="flex flex-col items-center hover:text-black">
-			<i class="mdi mdi-tag-multiple"></i>
-			<span class="text-xs">Kategori</span>
-		</Link>
-		<Link href="/linker" class="flex flex-col items-center hover:text-black">
-			<i class="mdi mdi-phone-outline"></i>
-			<span class="text-xs">Hubungi</span>
-		</Link>
-		<Link href="/p/about-us" class="flex flex-col items-center hover:text-black">
-			<i class="mdi mdi-information-outline"></i>
-			<span class="text-xs">Tentang</span>
-		</Link>
-	</nav>
-
-<div class="fixed top-0 left-0 right-0 bg-white shadow-md p-4 z-50">
-    <div class="flex justify-center space-x-4">
-        <button class="bg-[#FEC43C] hover:bg-orange-600 text-white font-bold py-2 px-4 rounded" @click="setFilter('rekomendasi')">Rekomendasi</button>
-        <button class="bg-[#FEC43C] hover:bg-orange-600 text-white font-bold py-2 px-4 rounded" @click="setFilter('semua')">Semua Produk</button>
+<div class="fixed bottom-0 left-0 right-0 bg-gray-100 p-3 mb-1 z-50 rounded-lg md:hidden">
+        <nav class="flex justify-around items-center text-amber-600">
+            <a href="/" class="flex flex-col items-center hover:text-black">
+                <i class="mdi mdi-home-outline"></i>
+                <span class="text-xs">Beranda</span>
+            </a>
+            <a href="/products" class="flex flex-col items-center hover:text-black">
+                <i class="mdi mdi-cube-outline"></i>
+                <span class="text-xs">Produk</span>
+            </a>
+            <div class="relative" @click="toggleDropdown">
+                <a class="flex flex-col items-center hover:text-black">
+                    <i class="mdi mdi-tag-multiple"></i>
+                    <span class="text-xs">Kategori</span>
+                </a>
+                <div v-if="isOpen" class="absolute bottom-12 w-screen bg-white  rounded-lg">
+                    <ul class="flex flex-col justify-center p-3 ">
+                        <li v-for="(category,index) in Categories" :key="index" class="py-1">
+                            <Link :href="`/category/${category.id}`" class="text-black hover:text-amber-600">
+                                {{ category.name }}
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <a href="/linker" class="flex flex-col items-center hover:text-black">
+                <i class="mdi mdi-phone-outline"></i>
+                <span class="text-xs">Hubungi</span>
+            </a>
+            <a href="/p/about-us" class="flex flex-col items-center hover:text-black">
+                <i class="mdi mdi-information-outline"></i>
+                <span class="text-xs">Tentang</span>
+            </a>
+        </nav>
     </div>
-</div>
+
+<div class="fixed top-0 left-0 right-0 bg-white shadow-md p-2 z-50 block md:hidden">
+    <div class="flex justify-between space-x-4">
+        <div class="flex space-x-2">
+            <img src="/logo.jpg" class="w-10"> <h1 class="text-xl poppins-bold mt-2">IA PROJECT</h1>
+        </div>
+      
+    </div>
 </div>
 
 

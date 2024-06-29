@@ -5,18 +5,31 @@
         <h2 class="text-secondary text-3xl text-center md:text-left md:text-4xl mb-5 md:mb-0 poppins-bold uppercase"><i class="mdi mdi-sofa-single"></i> {{ HeadTitle }}</h2>
       </div>
 
-      <div class="flex flex-col md:flex-row  justify-between mb-10 mt-5">
-          <div >
-            <Link href="?filter=all" class="bg-amber-400 hover:bg-amber-600 text-gray-600 font-bold py-2 px-4 rounded-full mr-2" preserve-scroll><i class="mdi mdi-view-list"></i> Semua Produk</Link>
-        <Link href="?filter=new" class="bg-amber-400 hover:bg-amber-600 text-gray-600 font-bold py-2 px-4 rounded-full mr-2" preserve-scroll><i class="mdi mdi-moon-new"></i> Terbaru</Link>
-        <Link href="?filter=populer" class="bg-amber-400 hover:bg-amber-600 text-gray-600 font-bold py-2 px-4 rounded-full" preserve-scroll><i class="mdi mdi-star-box"></i> Terpopuler</Link>
-          </div>
-        <div>
-          <Link v-show="Filter == 'desc_harga'" href="?filter=asc_harga" class="bg-amber-400 hover:bg-amber-600 text-gray-600 font-bold py-2 px-2 rounded-full"  preserve-scroll><i class="mdi mdi-sort-descending"></i>  Harga</Link>
-          <Link v-show="Filter == 'asc_harga'" href="?filter=desc_harga" class="bg-amber-400 hover:bg-amber-600 text-gray-600 font-bold py-2 px-2 rounded-full"  preserve-scroll><i class="mdi mdi-sort-ascending"></i>  Harga</Link>
-          <Link v-show="Filter !== 'asc_harga' && Filter !== 'desc_harga'" href="?filter=desc_harga" class="bg-amber-400 hover:bg-amber-600 text-gray-600 font-bold py-2 px-2 rounded-full" preserve-scroll><i class="mdi mdi-sort"></i>  Harga</Link>
-        </div>
-      </div>
+      <div class="flex flex-col flex-wrap md:flex-row justify-between mb-10 mt-5">
+    <div class="flex flex-wrap gap-1 justify-start">
+        <a href="?filter=all" class="bg-amber-400 hover:bg-amber-600 text-gray-600 font-bold py-2 px-4 rounded-full" preserve-scroll>
+            <i class="mdi mdi-view-list"></i> Semua Produk
+        </a>
+        <a href="?filter=new" class="bg-amber-400 hover:bg-amber-600 text-gray-600 font-bold py-2 px-4 rounded-full" preserve-scroll>
+            <i class="mdi mdi-moon-new"></i> Terbaru
+        </a>
+        <a href="?filter=populer" class="bg-amber-400 hover:bg-amber-600 text-gray-600 font-bold py-2 px-4 rounded-full" preserve-scroll>
+            <i class="mdi mdi-star-box"></i> Terpopuler
+        </a>
+    </div>
+    <div class="flex justify-end">
+        <a v-show="Filter == 'desc_harga'" href="?filter=asc_harga" class="bg-amber-400 hover:bg-amber-600 text-gray-600 font-bold py-2 px-4 rounded-full" preserve-scroll>
+            <i class="mdi mdi-sort-descending"></i> Harga
+        </a>
+        <a v-show="Filter == 'asc_harga'" href="?filter=desc_harga" class="bg-amber-400 hover:bg-amber-600 text-gray-600 font-bold py-2 px-4 rounded-full" preserve-scroll>
+            <i class="mdi mdi-sort-ascending"></i> Harga
+        </a>
+        <a v-show="Filter !== 'asc_harga' && Filter !== 'desc_harga'" href="?filter=desc_harga" class="bg-amber-400 hover:bg-amber-600 text-gray-600 font-bold py-2 px-4 rounded-full" preserve-scroll>
+            <i class="mdi mdi-sort"></i> Harga
+        </a>
+    </div>
+</div>
+
 
       <div class="bg-amber-400 m-5 p-3 rounded text-gray-600 flex justify-between" v-show="Filter !== null">
        <div v-if="Filter != 'search'">
@@ -48,7 +61,7 @@
               <b class="text-sm mt-2">{{ product.price == 0 ? 'Tanya Admin' : helpers.rupiah(product.price) }}</b>
               <span class="text-sm mt-2"><i class="mdi mdi-tag"></i> {{ product.subcategory.name }}</span>
             </div>
-            <a :href="helpers.WaButton(Global , '/product/'+product.slug)" class="bg-amber-500 px-8 py-2 rounded-full text-gray-600 font-bold text-center hover:bg-amber-600 hover:text-white uppercase" target="_blank"><i class="mdi mdi-whatsapp"></i> {{ Global.Settings.action_button_text }}</a>
+            <a :href="helpers.WaButton(Global , '/product/'+product.slug)" class="bg-amber-500 px-8 py-2 rounded-full text-gray-600 font-bold text-center hover:bg-amber-600 hover:text-white uppercase text-xs md:text-lg" target="_blank"><i class="mdi mdi-whatsapp"></i> {{ Global.Settings.action_button_text }}</a>
           </div>
         </div>
       </div>
