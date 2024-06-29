@@ -7,26 +7,26 @@
 
       <div class="flex flex-col flex-wrap md:flex-row justify-between mb-10 mt-5">
     <div class="flex flex-wrap gap-1 justify-start">
-        <a href="?filter=all" class="bg-amber-400 hover:bg-amber-600 text-gray-600 font-bold py-2 px-4 rounded-full" preserve-scroll>
+        <Link href="?filter=all" class="bg-amber-400 hover:bg-amber-600 text-gray-600 font-bold py-2 px-4 rounded-full" preserve-scroll>
             <i class="mdi mdi-view-list"></i> Semua Produk
-        </a>
-        <a href="?filter=new" class="bg-amber-400 hover:bg-amber-600 text-gray-600 font-bold py-2 px-4 rounded-full" preserve-scroll>
+        </Link>
+        <Link href="?filter=new" class="bg-amber-400 hover:bg-amber-600 text-gray-600 font-bold py-2 px-4 rounded-full" preserve-scroll>
             <i class="mdi mdi-moon-new"></i> Terbaru
-        </a>
-        <a href="?filter=populer" class="bg-amber-400 hover:bg-amber-600 text-gray-600 font-bold py-2 px-4 rounded-full" preserve-scroll>
+        </Link>
+        <Link href="?filter=populer" class="bg-amber-400 hover:bg-amber-600 text-gray-600 font-bold py-2 px-4 rounded-full" preserve-scroll>
             <i class="mdi mdi-star-box"></i> Terpopuler
-        </a>
+        </Link>
     </div>
     <div class="flex justify-end">
-        <a v-show="Filter == 'desc_harga'" href="?filter=asc_harga" class="bg-amber-400 hover:bg-amber-600 text-gray-600 font-bold py-2 px-4 rounded-full" preserve-scroll>
+        <Link v-show="Filter == 'desc_harga'" href="?filter=asc_harga" class="bg-amber-400 hover:bg-amber-600 text-gray-600 font-bold py-2 px-4 rounded-full" preserve-scroll>
             <i class="mdi mdi-sort-descending"></i> Harga
-        </a>
-        <a v-show="Filter == 'asc_harga'" href="?filter=desc_harga" class="bg-amber-400 hover:bg-amber-600 text-gray-600 font-bold py-2 px-4 rounded-full" preserve-scroll>
+        </Link>
+        <Link v-show="Filter == 'asc_harga'" href="?filter=desc_harga" class="bg-amber-400 hover:bg-amber-600 text-gray-600 font-bold py-2 px-4 rounded-full" preserve-scroll>
             <i class="mdi mdi-sort-ascending"></i> Harga
-        </a>
-        <a v-show="Filter !== 'asc_harga' && Filter !== 'desc_harga'" href="?filter=desc_harga" class="bg-amber-400 hover:bg-amber-600 text-gray-600 font-bold py-2 px-4 rounded-full" preserve-scroll>
+        </Link>
+        <Link v-show="Filter !== 'asc_harga' && Filter !== 'desc_harga'" href="?filter=desc_harga" class="bg-amber-400 hover:bg-amber-600 text-gray-600 font-bold py-2 px-4 rounded-full" preserve-scroll>
             <i class="mdi mdi-sort"></i> Harga
-        </a>
+        </Link>
     </div>
 </div>
 
