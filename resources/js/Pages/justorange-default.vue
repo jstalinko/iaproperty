@@ -45,13 +45,13 @@
 
 		<CategoryPage :Categories="Categories" :SubCategories="SubCategories" :ActiveCat="ActiveCat" />
 
-		<ProductPage :Products="Products" :HeadTitle="HeadTitle" :Action="Action" :Filter="Filter" :Global="Global" />
+		<ProductPage :Products="Products" :HeadTitle="HeadTitle" :Action="Action" :Filter="Filter" :Global="Global" :FilterQuery="FilterQuery"/>
 
 		<Testimonial :Testimonials="Testimonials" />
 
 	
 
-		<Footer />
+		<Footer :Global="Global" :Socmed="Socmed" :Pages="Pages" />
 	</div>
 </template>
 
@@ -73,7 +73,10 @@ defineProps({ ProductsRecommended:Object,
 			  ActiveCat: String,
 			  Filter: String, 
 			  Global : Object,
-			  Testimonials: Object
+			  Testimonials: Object,
+			  Socmed: Object,
+			  Pages: Object,
+			  FilterQuery: String
 			 });
 const HeadTitle = 'Produk Kami';
 const Action = 'all';

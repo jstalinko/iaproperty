@@ -3,7 +3,7 @@
         <JustHead :Global="Global" :title="'Produk Kami'"/>
         <Navbar :Categories="Categories"/>
         <br><br><br>
-        <ProductPage :Products="Products" :HeadTitle="HeadTitle" :Action="Action" :Categories="Categories" :Filter="Filter" :Global="Global"/>
+        <ProductPage :Products="Products" :HeadTitle="HeadTitle" :Action="Action" :Categories="Categories" :Filter="Filter" :Global="Global" :FilterQuery="FilterQuery"/>
     </div>
 </template>
 
@@ -19,7 +19,8 @@ defineProps({
     ActiveCat: String,
     SubCategories: Object,
     Filter: String,
-    Global: Object 
+    Global: Object ,
+    FilterQuery:String
 });
 const HeadTitle = "Produk Kami";
 const Action = "kategori";

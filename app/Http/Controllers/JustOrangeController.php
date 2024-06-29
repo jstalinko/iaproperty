@@ -8,6 +8,7 @@ use Inertia\Inertia;
 use App\Models\Linker;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\SocialMedia;
 use App\Models\SubCategory;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
@@ -54,6 +55,8 @@ class JustOrangeController extends Controller
         $data['Global'] = $this->Global;
         $data['ProductsRecommended'] = Product::where('recomended',true)->limit(10)->with('subcategory')->get();
         $data['Testimonials'] = Testimonial::where('active',true)->limit(6)->get();
+        $data['Socmed'] = SocialMedia::all();
+        $data['Pages'] = Post::where('active',true)->get();
 
         return Inertia::render('justorange-default', $data);
     }
@@ -96,6 +99,14 @@ class JustOrangeController extends Controller
             }else if($filter == 'recommended')
             {
                 $data['Products'] = Product::where('recomended' , true)->with('subcategory')->orderBy('id','desc')->get();
+            }else if($filter == 'search')
+            {
+                $query = $request->get('q');
+                $data['Products'] =  Product::where('name', 'like', '%' . $query . '%')
+                ->orWhere('content', 'like', '%' . $query . '%')
+                ->with('subcategory')
+                ->get();
+                $data['FilterQuery'] = $query;
             }
         }
         $data['SubCategories'] = $sub;

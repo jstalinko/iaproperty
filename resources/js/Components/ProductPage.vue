@@ -19,7 +19,7 @@
       </div>
 
       <div class="bg-amber-400 m-5 p-3 rounded text-gray-600 flex justify-between" v-show="Filter !== null">
-       <div>
+       <div v-if="Filter != 'search'">
         <span class="font-thin underline">Filter </span> : 
         <span class="font-bold" v-if="Filter == 'all'">Semua Produk</span>
         <span class="font-bold" v-if="Filter == 'new'">Produk Terbaru</span>
@@ -27,6 +27,10 @@
         <span class="font-bold" v-if="Filter == 'asc_harga'">Harga Termurah</span>
         <span class="font-bold" v-if="Filter == 'desc_harga'">Harga Termahal</span>
         <span class="font-bold" v-if="Filter == 'recommended'">Rekomendasi Produk</span>
+       </div>
+       <div v-else>
+        <span class="font-thin underline">Search </span> :
+        <span class="font-bold">{{FilterQuery}}</span>
        </div>
        <div class="hover:font-bold">
         <Link href="?filter" preserve-scroll><i class="mdi mdi-close"></i> Reset</Link>
@@ -67,6 +71,7 @@ defineProps({
   Action: String, 
   Categories: Object,
   Filter: String,
-  Global: Object
+  Global: Object,
+  FilterQuery:String
   });
 </script>

@@ -1,5 +1,27 @@
 <template>
 <div class="fixed top-0 w-full bg-white p-2 z-50 hidden md:block">
+    <div class="flex items-center justify-center min-h-screen bg-white" v-if="searchOpen">
+      
+        <br>
+        <div class="relative w-full max-w-screen-md">
+            <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-600 poppins-bold animate-pulse">IA PROJECT</h1>
+        </div>
+        <div>
+            <input
+                type="text"
+                placeholder="Search..."
+                class="w-full p-4 text-amber-600 bg-transparanet  rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500" v-model="query"
+            />
+          <button class="bg-amber-500 w-full rounded-lg mt-2 text-gray-600 p-3 font-bold hover:bg-amber-400" type="button" role="button" @click="doSearch" ><i class="mdi mdi-magnify"></i> Search</button>
+          <button type="button" role="button" @click="toggleSearch" class="absolute top-0 right-0 mt-4 mr-4 text-black hover:text-red-500"
+          aria-label="Close"
+                >
+                    <i class="mdi mdi-close-circle-outline text-3xl"></i>
+                </button>
+        </div>
+        </div>
+    </div>
     <header class="flex justify-between items-center px-4">
         <div class="flex items-center gap-2">
             <img class="w-14" src="/logo.jpg" alt="IA Project" />
@@ -35,8 +57,8 @@
         </ul>
     </nav>
 
-        <button class="flex gap-5 bg-[#FEC43C] rounded-full px-4  text-gray-500">
-            <i class="mdi mdi-search-web text-xl"></i> 
+        <button class="flex gap-5 bg-[#FEC43C] rounded-full px-4  text-gray-500" type="button" role="button" @click="toggleSearch">
+            <i class="mdi mdi-magnify text-3xl"></i> 
 		</button>
     </header>
 </div>
@@ -83,12 +105,23 @@
 </template>
 
 <script setup>
-import { Link } from '@inertiajs/vue3';
-import {ref,onMounted,onBeforeUnmount} from 'vue';
+import { Link , router} from '@inertiajs/vue3';
+import {ref,onMounted,onBeforeUnmount,watch} from 'vue';
 
 defineProps({Categories: Object});
 
 const isOpen = ref(false);
+const searchOpen = ref(false);
+const query = ref('');
+
+const doSearch = async() => {
+    if(query.value == '') return;
+    router.visit('/products?filter=search&q='+query.value,{preserveScroll:true});
+}
+
+const toggleSearch = () => {
+    searchOpen.value = !searchOpen.value;
+}
 
 const toggleDropdown = () => {
     isOpen.value = !isOpen.value;

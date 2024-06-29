@@ -5,7 +5,7 @@
                 Testimoni
             </h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 bg-[#eeeeee] px-10 pt-10 pb-72 w-3/4">
-                <div class="rounded-lg bg-white p-5 z-50" v-for="(tes, index) in Testimonials" :key="index">
+                <div class="rounded-lg bg-white p-5 z-30" v-for="(tes, index) in Testimonials" :key="index">
                     <div class="flex justify-between items-center">
                         <div class="flex justify-center items-center gap-2">
                             <img class="w-14 rounded-full" :src="'https://ui-avatars.com/api/?name='+tes.name" alt="" />
