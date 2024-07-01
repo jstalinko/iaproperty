@@ -4,7 +4,7 @@
         <Navbar :Categories="Categories"/>
         <br><br>
      
-       <div class="container mt-10 mx-auto">
+       <div class="container mx-auto py-5 px-5 md:py-20 md:px-20">
         <div class="border-b-2 border-black mt-12">
 
 <nav class="flex items-center space-x-2 text-gray-700 py-4">
