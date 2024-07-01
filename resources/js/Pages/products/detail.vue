@@ -20,7 +20,7 @@
 
                 <div class="md:w-1/2">
                     <div class="p-5">
-                        <img src="https://placehold.co/600x400?text=No+image" alt="Placeholder Image"
+                        <img :src="helpers.imageUrl(product.image)" :alt="product.name"
                             class="w-full rounded-lg">
                         <br>
                         <hr>
