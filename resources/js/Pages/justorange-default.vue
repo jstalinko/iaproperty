@@ -29,12 +29,12 @@
 				</div>
 				
 				<div>
-					<img src="/assets/images/kursi-bg.png" alt="" />
+					<img src="/assets/images/kursi-bg.png" alt="" class="hover:sepia" />
 				</div>
 				
 			</section>
 			<div class="px-5 py-5">
-					<b>&copy; IA PROJECT</b> | <i class="italic">Bawu Batelait, Jepara,Jawa Tengah</i>
+					<b>&copy; IA PROJECT</b> | <i class="italic">Bawu Batealit, Jepara,Jawa Tengah</i>
 				</div>
 			<div>
 				
