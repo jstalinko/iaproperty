@@ -25,7 +25,7 @@
 				<nav>
 					<h5 class="font-bold text-2xl text-slate-500 mb-8">SOCIAL MEDIA</h5>
 					<div class="flex gap-5 mb-3">
-						<Link  :class="classNames[sos.type]"  v-for="(sos,index) in Socmed" :href="sos.link"><i :class="icons[sos.type]"></i> </Link>
+						<a target="_blank"  :class="classNames[sos.type]"  v-for="(sos,index) in Socmed" :href="sos.link"><i :class="icons[sos.type]"></i> </a>
 					</div>
 					<p class="text-lg max-w-sm">
 						Jangan ragu untuk berkonsultasi dan tanya kami! 
