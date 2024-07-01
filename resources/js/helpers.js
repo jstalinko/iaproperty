@@ -35,7 +35,7 @@ export default {
     autoDiscount: function(price)
     {
         price = parseInt(price);
-        const discountPercentage = Math.floor(Math.random() * (30 - 10 + 1)) + 10;
+        const discountPercentage = Math.floor(Math.random() * (30 - 20 + 1)) + 10;
         const discountAmount = (price * discountPercentage) / 100;
         const discountedPrice = price + discountAmount;
     

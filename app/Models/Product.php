@@ -17,7 +17,8 @@ class Product extends Model
         'price',
         'views',
         'active',
-        'slug'
+        'slug',
+        'recomended'
     ];
 
     /**

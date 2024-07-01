@@ -48,6 +48,7 @@ class ProductResource extends Resource
                
                 Forms\Components\Toggle::make('active')
                     ->required(),
+                Forms\Components\Toggle::make('recomended')->label('is Recommended?')->required(),
                 
             ]);
     }
@@ -70,6 +71,7 @@ class ProductResource extends Resource
                     ->sortable(),
                 Tables\Columns\IconColumn::make('active')
                     ->boolean(),
+                Tables\Columns\IconColumn::make('recomended')->boolean(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
