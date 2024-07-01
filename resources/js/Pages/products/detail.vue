@@ -10,10 +10,10 @@
                 <nav class="flex items-center space-x-2 text-gray-700 py-4">
                     <Link href="/" class="hover:text-gray-900"><i class="mdi mdi-home"></i> Home</Link>
                     <span>></span>
-                    <Link :href="'/category/' + Category.id" class="hover:text-gray-900"><i class="mdi mdi-tag"></i>
-                    {{ Category.name }}</Link>
+                    <Link :href="'/category/' + Category?.id" class="hover:text-gray-900"><i class="mdi mdi-tag"></i>
+                    {{ Category?.name }}</Link>
                     <span>></span>
-                    <span class="text-gray-500">{{ product.subcategory.name }}</span>
+                    <span class="text-gray-500">{{ product?.subcategory?.name }}</span>
                 </nav>
             </div>
             <div class="flex flex-col md:flex-row mt-10 ">
