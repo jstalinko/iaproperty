@@ -38,6 +38,7 @@ class ProductResource extends Resource
                     ->helperText('Isi dengan 0 jika harga tidak ingin di tampilkan'),
                 Forms\Components\FileUpload::make('image')
                     ->image()
+                    ->imageEditor()
                     ->optimize('png')
                     ->resize(50)
                     ->required()
