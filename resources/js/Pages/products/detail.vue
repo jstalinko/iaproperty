@@ -43,8 +43,8 @@
                                         <span class="text-sm mt-2"><i class="mdi mdi-tag"></i> {{
                                             product.subcategory.name }}</span>
                                     </div>
-                                    <a class="bg-amber-500 px-8 py-2 rounded-lg text-white font-bold text-center hover:bg-amber-700"
-                                        href="/#"><i class="mdi mdi-whatsapp"></i> Pesan</a>
+                                    <a class="bg-amber-500 px-8 py-2 rounded-lg text-white font-bold text-center hover:bg-amber-700 uppercase"
+                                        :href="helpers.WaButton(Global,'/product/'+product.slug)"><i class="mdi mdi-whatsapp"></i> {{Global.Settings.action_button_text}}</a>
                                 </div>
                             </div>
                         </div>
@@ -94,8 +94,8 @@
                                         <span class="text-sm mt-2"><i class="mdi mdi-tag"></i> {{
                                             product.subcategory.name }}</span>
                                     </div>
-                                    <a class="bg-amber-500 px-8 py-2 rounded-lg text-white font-bold text-center hover:bg-amber-700"
-                                        href="/#"><i class="mdi mdi-whatsapp"></i> Pesan</a>
+                                    <a class="bg-amber-500 px-8 py-2 rounded-lg text-white font-bold text-center hover:bg-amber-700 uppercase"
+                                        :href="helpers.WaButton(Global,'/product/'+product.slug)"><i class="mdi mdi-whatsapp"></i> {{Global.Settings.action_button_text }}</a>
                                 </div>
                             </div>
                         </div>
