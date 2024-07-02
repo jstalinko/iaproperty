@@ -21,7 +21,7 @@
                 <div class="md:w-1/2">
                     <div class="p-5">
                         <img :src="helpers.imageUrl(product.image)" :alt="product.name"
-                            class="w-full rounded-lg">
+                            class="w-full rounded-lg transition-transform duration-500 ease-in-out transform hover:scale-125 hover:cursor-zoom-in">
                         <br>
                         <hr>
                        <div class="hidden md:block">
