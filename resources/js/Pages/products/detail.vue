@@ -24,7 +24,8 @@
                             class="w-full rounded-lg">
                         <br>
                         <hr>
-                        <h3 class="text-2xl poppins-bold mt-5 mb-3"><i class="mdi mdi-table-furniture "></i> Produk
+                       <div class="hidden md:block">
+                        <h3 class="text-2xl poppins-bold mt-5 mb-3"><i class="mdi mdi-table-furniture"></i> Produk
                             Serupa</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 mb-10 mt-5">
                             <div class="rounded-lg" v-for="(product, index) in Products" :key="index">
@@ -47,6 +48,7 @@
                                 </div>
                             </div>
                         </div>
+                       </div>
 
                     </div>
                 </div>
@@ -54,11 +56,11 @@
                     <h1 class="text-3xl font-bold text-center md:text-left mb-4 poppins-bold"><i
                             class="mdi mdi-cart-heart"></i> {{ product.name }}</h1>
                     <div class="flex flex-col md:flex-row justify-between items-center mt-4">
-                        <span class="text-xl font-semibold border-2 p-2 rounded-full border-amber-400">{{ product.price
+                        <span class="text-sm md:text-xl font-semibold border-2 p-2 rounded-full border-amber-400 mb-2">{{ product.price
                             == 0 ? 'Tanya Admin' : helpers.rupiah(product.price) }}</span>
-                        <span class="text-md text-gray-500 border-2 p-2 rounded-full border-amber-400"><i
+                        <span class="text-md text-gray-500 border-2 p-2 rounded-full border-amber-400 mb-2"><i
                                 class="mdi mdi-tag"></i> {{ product.subcategory.name }}</span>
-                        <span class="text-sm text-gray-500 border-2 p-2 rounded-full border-amber-400"><i
+                        <span class="text-sm text-gray-500 border-2 p-2 rounded-full border-amber-400 mb-2"><i
                                 class="mdi mdi-eye-outline"></i> {{ product.views }}x dilihat</span>
                     </div>
                     <!-- <button
@@ -72,6 +74,32 @@
                         class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-4 rounded-full block w-full mt-4 uppercase">
                         <i class="mdi mdi-whatsapp"></i> Tanya Via wa
                     </button>
+
+                    <div class="block md:hidden">
+                        <h3 class="text-2xl poppins-bold mt-5 mb-3"><i class="mdi mdi-table-furniture"></i> Produk
+                            Serupa</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5 mb-10 mt-5">
+                            <div class="rounded-lg" v-for="(product, index) in Products" :key="index">
+                                <img class="w-full rounded-t-lg" :src="helpers.imageUrl(product.image)"
+                                    :alt="product.name" />
+                                <div
+                                    class="flex flex-col gap-2 text-gray-600 bg-[#FFCC4C] p-5 rounded-b-lg hover:shadow-lg">
+                                    <Link :href="'/product/' + product.slug">
+                                    <h4 class="font-bold hover:underline">{{ product.name }}</h4>
+                                    </Link>
+
+                                    <div class="flex flex-col md:flex-row md:justify-between">
+                                        <b class="text-sm mt-2">{{ product.price == 0 ? 'Tanya Admin' :
+                                            helpers.rupiah(product.price) }}</b>
+                                        <span class="text-sm mt-2"><i class="mdi mdi-tag"></i> {{
+                                            product.subcategory.name }}</span>
+                                    </div>
+                                    <a class="bg-amber-500 px-8 py-2 rounded-lg text-white font-bold text-center hover:bg-amber-700"
+                                        href="/#"><i class="mdi mdi-whatsapp"></i> Pesan</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

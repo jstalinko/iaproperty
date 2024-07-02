@@ -73,7 +73,7 @@ class JustOrangeController extends Controller
 
             return Inertia::render('pages', $data);
         } else {
-            return to_route('/products');
+            return to_route('/');
         }
     }
 
