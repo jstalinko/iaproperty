@@ -70,10 +70,10 @@
                     <div class="text-gray-600 text-center md:text-left px-4 mt-5">
                         <div class="prose lg:prose-xl" v-html="product.content"></div>
                     </div>
-                    <button
-                        class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-4 rounded-full block w-full mt-4 uppercase">
-                        <i class="mdi mdi-whatsapp"></i> Tanya Via wa
-                    </button>
+                    <a
+                        class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-4 rounded-full block w-full mt-4 uppercase text-center" :href="helpers.WaButton(Global,'/product/'+product.slug)" target="_blank" >
+                        <i class="mdi mdi-whatsapp"></i> {{ Global.Settings.action_button_text }}
+                </a>
 
                     <div class="block md:hidden">
                         <h3 class="text-2xl poppins-bold mt-5 mb-3"><i class="mdi mdi-table-furniture"></i> Produk

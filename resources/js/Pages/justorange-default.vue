@@ -42,6 +42,7 @@
 		</div>
 
 		<RecommendedPage :ProductsRecommended="ProductsRecommended" :Global="Global"/>
+		
 
 		<CategoryPage :Categories="Categories" :SubCategories="SubCategories" :ActiveCat="ActiveCat" />
 
