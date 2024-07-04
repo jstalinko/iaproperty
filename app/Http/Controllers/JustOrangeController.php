@@ -20,7 +20,7 @@ class JustOrangeController extends Controller
     public function __construct()
     {
         $this->Global['Settings'] = SettingsHelper::getSettings();
-        $this->Global['currentUrl'] = url()->current();
+        $this->Global['currentUrl'] = url('/');
     }
 
     public function index(Request $request): \Inertia\Response
